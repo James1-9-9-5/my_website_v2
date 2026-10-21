@@ -3,10 +3,10 @@
 Status: DRAFT. Fill in every [bracket] before moving to doc 01.
 
 ## Purpose
-[One paragraph: why this site exists and what it should achieve for me.]
+[Thsi site exists to send to potential employers as an 'About Me' and 'My Work' one-stop shop essentially]
 
 ## Positioning
-- **Headline (homepage H1):** [Who I help + the outcome I deliver]
+- **Headline (homepage H1):** [I help First Nations communities build and maintain asset management and work order scheduling systems]
 - **One-sentence summary:** [...]
 - **What I want to be known for:** [GIS, asset management, community-centred mapping...]
 
