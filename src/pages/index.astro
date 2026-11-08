@@ -1,0 +1,85 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { getPage, getProjects } from '../lib/content';
+import { url } from '../lib/site';
+
+const home = await getPage('home');
+const contact = await getPage('contact');
+const { title, summary, headline, tagline, intro, heroImage, heroAlt, featuredCount = 3 } = home.data;
+const { email, linkedin, github, resumePdf } = contact.data;
+
+const featured = (await getProjects()).filter((p) => p.data.featured).slice(0, featuredCount);
+
+const sections = [
+  { label: 'Experience', path: 'experience/', blurb: 'Roles and what I delivered in each' },
+  { label: 'Projects', path: 'projects/', blurb: 'Case studies: problem, approach, outcome' },
+  { label: 'Skills & Education', path: 'skills-education/', blurb: 'Tools, methods and training' },
+  { label: 'Beyond the Map', path: 'beyond-the-map/', blurb: 'The person behind the work' },
+  { label: 'Contact', path: 'contact/', blurb: 'Get in touch or download my CV' },
+];
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'James Spooner',
+  jobTitle: 'GIS Specialist',
+  worksFor: { '@type': 'Organization', name: 'Tapestry Research Group' },
+  address: { '@type': 'PostalAddress', addressLocality: 'Vancouver', addressCountry: 'CA' },
+  url: new URL(url(''), Astro.site).href,
+  email: email ? `mailto:${email}` : undefined,
+  sameAs: [linkedin, github].filter(Boolean),
+};
+---
+<Base title={title} description={summary} jsonLd={jsonLd}>
+  <section class="hero on-dark" aria-labelledby="hero-title">
+    <div class="wrap hero-grid">
+      {heroImage && (
+        <Image src={heroImage} alt={heroAlt ?? ''} class="profile-photo" width={180} height={180} densities={[1, 2]} loading="eager" fetchpriority="high" />
+      )}
+      <div>
+        <p class="hero-name">James Spooner</p>
+        <h1 id="hero-title">{headline}</h1>
+        {tagline && <p class="tagline">{tagline}</p>}
+        {intro && <p class="intro">{intro}</p>}
+        <div class="actions">
+          {email && <a class="btn" href={`mailto:${email}`}><Icon name="mail" /> Get in touch</a>}
+          {resumePdf && <a class="btn btn--light" href={url(resumePdf)} download><Icon name="download" /> Resume</a>}
+          {linkedin && <a class="btn btn--light" href={linkedin} rel="noopener"><Icon name="linkedin" /> LinkedIn</a>}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt" aria-labelledby="find-title">
+    <div class="wrap">
+      <h2 class="section-title" id="find-title">What you'll find here</h2>
+      <p class="section-lede">Start wherever is most useful to you.</p>
+      <ul class="link-cards">
+        {sections.map((s) => (
+          <li>
+            <a class="link-card" href={url(s.path)}>
+              <strong>{s.label} <Icon name="arrow" size={16} /></strong>
+              <span>{s.blurb}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  {featured.length > 0 && (
+    <section class="section" aria-labelledby="featured-title">
+      <div class="wrap">
+        <h2 class="section-title" id="featured-title">Featured projects</h2>
+        <p class="section-lede">A few examples of the systems and workflows I build.</p>
+        <ul class="grid">
+          {featured.map((project) => <li><ProjectCard project={project} /></li>)}
+        </ul>
+        <p style="margin-top: 28px"><a class="back-link" href={url('projects/')}>All projects <Icon name="arrow" size={16} /></a></p>
+      </div>
+    </section>
+  )}
+</Base>

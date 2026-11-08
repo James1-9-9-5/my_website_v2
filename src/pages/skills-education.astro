@@ -1,0 +1,45 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import PageHeader from '../components/PageHeader.astro';
+import Icon from '../components/Icon.astro';
+import { getPage } from '../lib/content';
+import { slugify, url } from '../lib/site';
+
+const page = await getPage('skills-education');
+const contact = await getPage('contact');
+const skills = await getCollection('skills');
+const education = (await getCollection('education')).sort((a, b) => b.data.endYear - a.data.endYear);
+---
+<Base title={page.data.title} description={page.data.summary}>
+  <PageHeader title={page.data.title} lede={page.data.summary} />
+  <section class="section">
+    <div class="wrap cols">
+      <div>
+        <h2 id="skills">Skills</h2>
+        {skills.map((group) => (
+          <div class="skill-group">
+            <h3>{group.data.group}</h3>
+            <ul class="chips">
+              {group.data.items.map((item) => <li><span class="chip" id={slugify(item)}>{item}</span></li>)}
+            </ul>
+          </div>
+        ))}
+      </div>
+      <div>
+        <h2 id="education">Education</h2>
+        <ul class="edu-list">
+          {education.map((e) => (
+            <li>
+              <h3>{e.data.qualification}</h3>
+              <p>{e.data.institution}, {e.data.startYear}–{e.data.endYear}</p>
+            </li>
+          ))}
+        </ul>
+        {contact.data.resumePdf && (
+          <a class="btn" href={url(contact.data.resumePdf)} download><Icon name="download" /> Download my CV (PDF)</a>
+        )}
+      </div>
+    </div>
+  </section>
+</Base>

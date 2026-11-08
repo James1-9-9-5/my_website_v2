@@ -19,3 +19,8 @@ Add a new row whenever a decision is made or changed. Newest at the bottom.
 | D13 | 2026-11-08 | Launch with the current CV PDF; replace it later | Current CV, new CV before launch | Not blocking launch; James is happy with it for now | Accepted |
 | D14 | 2026-11-08 | Use the current 486×300 project images as covers for launch | Current images, new larger visuals | Good enough for cards; replace with larger visuals after launch | Accepted |
 | D15 | 2026-11-08 | Leave out the old section icons and the bungee video in v1 | Use on Home / Beyond the Map, leave out | The four icons map to the old sections, not the new ones; a 15 MB video costs performance and adds little for employers. Originals stay in the old repo | Accepted |
+| D16 | 2026-11-08 | Bring launch forward to 2026-11-08 | Launch 30 Nov, launch now | James wants it live now; case studies launch with existing content and expand later | Accepted |
+| D17 | 2026-11-08 | Astro 7 (latest), Node 22, no extra dependencies beyond fonts | Astro 5/6, Astro 7 | Current release; only Fontsource fonts and the type checker added | Accepted |
+| D18 | 2026-11-08 | Optimise images with Astro's built-in pipeline instead of a custom script | Script in `scripts/`, `astro:assets` | Same result, nothing to maintain | Accepted |
+| D19 | 2026-11-08 | Experience id = file name; Beyond the Map rows in front matter | Separate id field, inline images | Fewer fields to keep in sync; supports the alternating photo layout | Accepted |
+| D20 | 2026-11-08 | All three case studies published as `redacted` | cleared, redacted | James approved; no client or community names or locations are shown | Accepted |

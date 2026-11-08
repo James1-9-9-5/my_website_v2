@@ -1,0 +1,87 @@
+---
+import '@fontsource/source-sans-3/400.css';
+import '@fontsource/source-sans-3/600.css';
+import '@fontsource/source-sans-3/700.css';
+import '@fontsource/bricolage-grotesque/600.css';
+import '@fontsource/bricolage-grotesque/700.css';
+import '../styles/global.css';
+import Icon from '../components/Icon.astro';
+import { getEntry } from 'astro:content';
+import { NAV, isCurrent, url } from '../lib/site';
+
+interface Props {
+  title: string;
+  description: string;
+  /** Extra JSON-LD for this page (e.g. Person on Home) */
+  jsonLd?: Record<string, unknown>;
+}
+const { title, description, jsonLd } = Astro.props;
+
+const contact = await getEntry('pages', 'contact');
+if (!contact) throw new Error('content/pages/contact.md is missing');
+const { email, linkedin, github, resumePdf } = contact.data;
+
+const fullTitle = title.includes('James Spooner') ? title : `${title} | James Spooner`;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const ogImage = new URL(url('og-image.jpg'), Astro.site).href;
+const year = new Date().getFullYear();
+---
+<!doctype html>
+<html lang="en-CA">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_CA" />
+    <meta property="og:site_name" content="James Spooner" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:alt" content="Portrait of James Spooner" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="theme-color" content="#2b2b2b" />
+    <link rel="icon" href={url('favicon.ico')} sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href={url('favicon-32x32.png')} />
+    <link rel="apple-touch-icon" sizes="180x180" href={url('apple-touch-icon.png')} />
+    <link rel="sitemap" href={url('sitemap.xml')} />
+    {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <nav class="site-nav" aria-label="Main">
+      <ul class="nav-links">
+        {NAV.map((item) => (
+          <li>
+            <a
+              href={url(item.path ? `${item.path}/` : '')}
+              aria-current={isCurrent(item.path, Astro.url.pathname) ? 'page' : undefined}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <main id="main" tabindex="-1">
+      <slot />
+    </main>
+
+    <footer class="site-footer on-dark">
+      <div class="wrap">
+        <ul class="footer-links">
+          {email && <li><a href={`mailto:${email}`}><Icon name="mail" /> Email</a></li>}
+          {linkedin && <li><a href={linkedin} rel="noopener"><Icon name="linkedin" /> LinkedIn</a></li>}
+          {github && <li><a href={github} rel="noopener"><Icon name="github" /> GitHub</a></li>}
+          {resumePdf && <li><a href={url(resumePdf)} download><Icon name="download" /> Resume (PDF)</a></li>}
+        </ul>
+        <small>&copy; {year} James Spooner</small>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -3,7 +3,7 @@
 ## Stack
 | Layer | Choice | Notes |
 |-------|--------|-------|
-| Framework | Astro (static output) | Decision D2 in doc 11. Alternative considered: Next.js static export |
+| Framework | Astro 7 (static output) | Decision D2 in doc 11. Alternative considered: Next.js static export |
 | Language | TypeScript | |
 | Content | Astro content collections | Markdown for experience, projects, pages; YAML for skills and education (doc 02) |
 | Validation | Schemas in the content config | Enforces the build-failure rules in doc 02 (missing alt text, `pending` clearance, broken role links) |
@@ -24,11 +24,14 @@ content/
 docs/               planning documents
 media-source/       original media (not deployed)
 public/             optimised images, CV PDF, favicon, CNAME (at launch)
-scripts/            image optimisation, validation helpers
+scripts/            post-build checks (check-site.mjs)
 src/                layouts, components, pages, styles, content config
 test/               link, accessibility and schema checks
 AGENTS.md           instructions for AI coding assistants
 ```
+
+## Images
+Originals stay in `media-source/` and are referenced from content front matter. Astro's built-in image pipeline (`astro:assets`) resizes them and converts to WebP at build time, so there's no separate optimisation script (D18).
 
 ## Routes
 Generated from doc 01: `/`, `/experience`, `/projects`, `/projects/[slug]`, `/skills-education`, `/beyond-the-map`, `/contact`, `/404`.

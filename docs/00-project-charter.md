@@ -43,7 +43,7 @@ Potential employers only (decision D6).
 ## Constraints
 - Hosting: GitHub Pages (static)
 - Budget: domain only (jamesspooner.org already owned)
-- Time: launch by 2026-11-30 (D8)
+- Time: launch brought forward to 2026-11-08 (D16); case studies expand after launch
 - Content permissions: see doc 08 (client and community work must be cleared or redacted before publishing)
 
 ## Reference

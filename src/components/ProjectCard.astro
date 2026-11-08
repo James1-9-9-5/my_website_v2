@@ -1,0 +1,25 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import Icon from './Icon.astro';
+import { url } from '../lib/site';
+
+interface Props {
+  project: CollectionEntry<'projects'>;
+  headingLevel?: 'h2' | 'h3';
+}
+const { project, headingLevel = 'h3' } = Astro.props;
+const { title, subtitle, summary, cover, coverAlt } = project.data;
+const Heading = headingLevel;
+---
+<article class="card">
+  <div class="card-thumb">
+    <Image src={cover} alt={coverAlt} width={Math.min(486, cover.width)} widths={[486, 972].filter((w) => w <= cover.width)} sizes="(max-width: 860px) 100vw, 330px" loading="lazy" decoding="async" />
+  </div>
+  <div class="card-body">
+    <Heading><a href={url(`projects/${project.id}/`)}>{title}</a></Heading>
+    <p class="subtitle">{subtitle}</p>
+    <p class="summary">{summary}</p>
+    <span class="more" aria-hidden="true">Read case study <Icon name="arrow" size={16} /></span>
+  </div>
+</article>

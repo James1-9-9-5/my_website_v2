@@ -1,0 +1,73 @@
+---
+import { render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import PageHeader from '../components/PageHeader.astro';
+import Icon from '../components/Icon.astro';
+import { getPage, getProjects, getRoles } from '../lib/content';
+import { duration, formatMonth, url } from '../lib/site';
+
+const page = await getPage('experience');
+const contact = await getPage('contact');
+const roles = await getRoles();
+const projects = await getProjects();
+
+const items = await Promise.all(
+  roles.map(async (role) => ({
+    role,
+    Content: (await render(role)).Content,
+    related: projects.filter((p) => p.data.role.id === role.id),
+  })),
+);
+---
+<Base title={page.data.title} description={page.data.summary}>
+  <PageHeader title={page.data.title} lede={page.data.summary}>
+    {contact.data.resumePdf && (
+      <div class="actions" style="margin-top: 24px">
+        <a class="btn btn--light" href={url(contact.data.resumePdf)} download><Icon name="download" /> Download my CV (PDF)</a>
+      </div>
+    )}
+  </PageHeader>
+
+  <section class="section">
+    <div class="wrap roles">
+      {items.map(({ role, Content, related }) => {
+        const d = role.data;
+        const isSummary = d.kind === 'summary';
+        return (
+          <article class="role" id={role.id}>
+            <div class="role-meta">
+              {isSummary ? (
+                <span>{d.dateLabel}</span>
+              ) : (
+                <>
+                  <span>{formatMonth(d.startDate)} – {d.endDate ? formatMonth(d.endDate) : 'Present'}</span>
+                  <span class="role-duration"> · {duration(d.startDate, d.endDate)}</span>
+                  {d.location && (
+                    <span class="role-location"><Icon name="pin" size={14} /> {d.location}</span>
+                  )}
+                </>
+              )}
+            </div>
+            <div>
+              <details class="role-details" open={d.open}>
+                <summary>
+                  <h2>{d.role}</h2>
+                  {d.organization && <p class="role-company">{d.organization}</p>}
+                </summary>
+                <Content />
+                {related.length > 0 && (
+                  <div class="role-projects">
+                    <strong>Case studies from this role:</strong>
+                    <ul>
+                      {related.map((p) => <li><a href={url(`projects/${p.id}/`)}>{p.data.title}</a></li>)}
+                    </ul>
+                  </div>
+                )}
+              </details>
+            </div>
+          </article>
+        );
+      })}
+    </div>
+  </section>
+</Base>

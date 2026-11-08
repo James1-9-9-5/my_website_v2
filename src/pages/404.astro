@@ -1,0 +1,14 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHeader from '../components/PageHeader.astro';
+import Icon from '../components/Icon.astro';
+import { url } from '../lib/site';
+---
+<Base title="Page not found" description="This page doesn't exist. Head back to the home page or browse my projects.">
+  <PageHeader title="Off the map" lede="This page doesn't exist, or it has moved.">
+    <div class="actions" style="margin-top: 28px">
+      <a class="btn btn--light" href={url('')}><Icon name="back" /> Back to home</a>
+      <a class="btn btn--light" href={url('projects/')}>Browse projects</a>
+    </div>
+  </PageHeader>
+</Base>

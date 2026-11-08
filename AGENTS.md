@@ -15,7 +15,7 @@ James Spooner's personal GIS and asset-management portfolio, written for potenti
 
 ## Commands
 - `npm run dev`, `npm run build`, `npm run lint`, `npm test`
-(Update this list once M1 is set up.)
+`npm test` runs after `npm run build`. Content and editing guide: README.md.
 
 ## Rules
 - Work on one task from `docs/09-build-plan.md` at a time, on the milestone's branch.

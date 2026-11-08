@@ -1,0 +1,23 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import { getPage, getProjects } from '../../lib/content';
+
+const page = await getPage('projects');
+const projects = await getProjects();
+---
+<Base title={page.data.title} description={page.data.summary}>
+  <PageHeader title={page.data.title} lede={page.data.summary} />
+  <section class="section">
+    <div class="wrap">
+      <ul class="grid">
+        {projects.map((project) => <li><ProjectCard project={project} headingLevel="h2" /></li>)}
+      </ul>
+      <p class="note">
+        Many of my projects are confidential or covered by NDAs for the communities and clients I work with.
+        Further information can be provided on request, though client information will be redacted.
+      </p>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,21 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHeader from '../components/PageHeader.astro';
+import Icon from '../components/Icon.astro';
+import { getPage } from '../lib/content';
+import { url } from '../lib/site';
+
+const page = await getPage('contact');
+const { title, summary, email, linkedin, github, resumePdf } = page.data;
+---
+<Base title={title} description={summary}>
+  <PageHeader title={title} lede={summary}>
+    <div class="actions" style="margin-top: 28px">
+      {email && <a class="btn" href={`mailto:${email}`}><Icon name="mail" /> Get in touch</a>}
+      {resumePdf && <a class="btn btn--light" href={url(resumePdf)} download><Icon name="download" /> Resume</a>}
+      {linkedin && <a class="btn btn--light" href={linkedin} rel="noopener"><Icon name="linkedin" /> LinkedIn</a>}
+      {github && <a class="btn btn--light" href={github} rel="noopener"><Icon name="github" /> GitHub</a>}
+    </div>
+    {email && <p class="contact-email">Or email me directly at <a href={`mailto:${email}`}>{email}</a></p>}
+  </PageHeader>
+</Base>

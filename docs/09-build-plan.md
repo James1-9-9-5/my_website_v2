@@ -27,7 +27,7 @@ Clearance requests for PR1-PR3 (doc 08) go out during M1, since approval is the 
 - Update docs/11-decisions-log.md whenever a decision changes the plan.
 
 ## Timeline
-Launch: 2026-11-30 (D8).
+Launch brought forward to 2026-11-08 (D16). M1-M3 and a first version of M4 were built in one pass; the dates below now apply to follow-up work.
 
 | Milestone | Target date |
 |-----------|-------------|

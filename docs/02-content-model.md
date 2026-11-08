@@ -34,7 +34,7 @@ The "What you'll find here" row is generated from the nav, and the featured grid
 | startDate | date | Month and year |
 | endDate | date or empty | Empty means "Present" |
 | kind | enum | `role` or `summary` (use `summary` for the grouped "Earlier roles" entry) |
-| id | string | Short id that projects link to, e.g. `tapestry` |
+| (file name) | | The file name is the id projects link to, e.g. `tapestry.md` → `tapestry` (D19) |
 | draft | boolean | Hidden when true |
 
 Body: 3-5 bullets, each leading with what I did and the result. Put numbers in where I can (e.g. a KPI hit, backlog reclaimed). Sorted newest first by `startDate`.
@@ -92,7 +92,7 @@ Fields per entry: `qualification`, `institution`, `startYear`, `endYear`. Curren
 | title | string | Beyond the Map |
 | summary | string | 1-2 sentences, used for SEO |
 
-Body: the personal story in short sections, with images inline. Every image needs alt text and, where useful, a caption. Suggested arc: how I found GIS, what I do outside work, the people thread that ties it together. Proofread the copy when migrating it from the current site.
+Body: the story is held in front matter as `rows` (paragraphs, image, alt, caption, side), so each row renders as text beside a photo, alternating sides (D19). Every image needs alt text and, where useful, a caption. Suggested arc: how I found GIS, what I do outside work, the people thread that ties it together. Proofread the copy when migrating it from the current site.
 
 ## Contact (`contact.md`)
 | Field | Type | Notes |

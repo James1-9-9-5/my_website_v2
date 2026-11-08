@@ -1,0 +1,70 @@
+---
+import { Image } from 'astro:assets';
+import { getEntry, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import Icon from '../../components/Icon.astro';
+import { getProjects, getSkillNames } from '../../lib/content';
+import { slugify, url } from '../../lib/site';
+
+export async function getStaticPaths() {
+  const projects = await getProjects();
+  return projects.map((project) => ({ params: { slug: project.id }, props: { project } }));
+}
+
+const { project } = Astro.props;
+const d = project.data;
+
+// Rule (docs/02): role must match an Experience file. Fail the build if not.
+const role = await getEntry(d.role);
+if (!role) throw new Error(`Project "${project.id}": role "${d.role.id}" has no file in content/experience/`);
+
+// Rule (docs/02): tools should match skills.yaml. Warning only.
+const skillNames = await getSkillNames();
+for (const tool of d.tools) {
+  if (!skillNames.has(tool)) console.warn(`[content] Project "${project.id}": tool "${tool}" is not in content/data/skills.yaml`);
+}
+
+const { Content } = await render(project);
+---
+<Base title={d.title} description={d.summary}>
+  <PageHeader title={d.title} lede={d.subtitle}>
+    <p class="eyebrow" slot="eyebrow"><a href={url('projects/')}>Projects</a></p>
+  </PageHeader>
+
+  <section class="section">
+    <div class="wrap case-layout">
+      <div class="case-body prose">
+        <Content />
+        {d.clearance === 'redacted' && (
+          <p class="note">Client and community details are generalised or removed from this case study. More detail is available on request.</p>
+        )}
+        <p style="margin-top: 32px"><a class="back-link" href={url('projects/')}><Icon name="back" size={16} /> All projects</a></p>
+      </div>
+
+      <aside class="case-aside" aria-label="Project details">
+        <div class="case-cover">
+          <Image src={d.cover} alt={d.coverAlt} width={Math.min(600, d.cover.width)} loading="eager" />
+        </div>
+        <div>
+          <h2>Tools</h2>
+          <ul class="chips">
+            {d.tools.map((tool) => (
+              <li>
+                {skillNames.has(tool)
+                  ? <a class="chip" href={url(`skills-education/#${slugify(tool)}`)}>{tool}</a>
+                  : <span class="chip">{tool}</span>}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h2>Role</h2>
+          <p style="margin: 0">
+            <a href={url(`experience/#${role.id}`)}>{role.data.role}{role.data.organization && `, ${role.data.organization}`}</a>
+          </p>
+        </div>
+      </aside>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,35 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import PageHeader from '../components/PageHeader.astro';
+import { getPage } from '../lib/content';
+
+const page = await getPage('beyond-the-map');
+const rows = page.data.rows ?? [];
+---
+<Base title={page.data.title} description={page.data.summary}>
+  <PageHeader title={page.data.title} lede={page.data.summary} />
+  <section class="section">
+    <div class="wrap">
+      {rows.map((row, i) => (
+        <div class:list={['story-row', row.side === 'left' && 'story-row--left']}>
+          <div class="prose">
+            {row.paragraphs.map((p) => <p>{p}</p>)}
+          </div>
+          <figure>
+            <Image
+              src={row.image}
+              alt={row.alt}
+              width={Math.min(600, row.image.width)}
+              widths={[300, 600, 900].filter((w) => w <= row.image.width)}
+              sizes="(max-width: 860px) 420px, 300px"
+              loading={i === 0 ? 'eager' : 'lazy'}
+              decoding="async"
+            />
+            {row.caption && <figcaption>{row.caption}</figcaption>}
+          </figure>
+        </div>
+      ))}
+    </div>
+  </section>
+</Base>

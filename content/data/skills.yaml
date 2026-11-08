@@ -1,0 +1,10 @@
+# Each group needs a unique id. Project `tools` must match an item here.
+- id: gis-software
+  group: GIS software
+  items: [ArcGIS Pro, ArcGIS Online, Field Maps, Survey123, QuickCapture, Dashboards, QGIS]
+- id: data-programming
+  group: Data & programming
+  items: [PostgreSQL / PostGIS, SQL (MySQL), Python / ArcPy, ArcGIS API for Python, ModelBuilder, Power Automate, Microsoft Office]
+- id: field-remote-sensing
+  group: Field & remote sensing
+  items: [LiDAR processing, DTM / DSM / CHM, Tree detection, Volumetric modelling, Spatial analysis, Data analysis]
