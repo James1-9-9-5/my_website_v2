@@ -92,10 +92,11 @@ Not in v1 (decision D3: later). The header and footer are already dark, so a dar
 ## Components
 | Component | Notes |
 |-----------|-------|
-| Header + nav | Sticky charcoal bar, centred tabs, bold labels, skip-to-content link first in the DOM. Under 860 px the tabs wrap to a scrollable second row (as now); a menu button is optional |
+| Header + nav | Sticky charcoal bar, centred tabs, bold labels, skip-to-content link first in the DOM. Under 860 px: name on the left and a Menu button (a `<details>` element, so it works without JavaScript) that drops down the full list |
 | Hero | Charcoal with the contour-line SVG background from the current site. Round profile photo (180 px, `--sage-dark` border), name as H1, tagline "GIS Specialist. Adventure enthusiast. Professional map nerd.", summary, and three actions: Get in touch, Resume, LinkedIn |
 | Section title | Heading with a 48×4 px `--sage` bar beneath |
-| Section links row | "What you'll find here": one link card per section |
+| At a glance strip | Four facts under the hero (years in GIS, countries, core tools, current role), from `glance` in `home.md`; years are calculated at build time from `gisSince`. Replaces the "What you'll find here" row, which repeated the nav |
+| Closing call to action | "Let's talk" band at the bottom of Home with Get in touch and Resume |
 | Project card | Cover image (16:10), title, outcome subtitle, 1-2 line summary, "Read case study" link |
 | Project grid | `auto-fit, minmax(270px, 1fr)`: 3 columns on desktop, 1 on mobile |
 | Case-study layout | Title block, then Problem, Approach, Tools (chips linking to Skills), Outcome, visuals, related role link |
@@ -103,11 +104,12 @@ Not in v1 (decision D3: later). The header and footer are already dark, so a dar
 | Chips | Pill tags on white with a `--line` border; used for skills and case-study tools |
 | Skills strip | Grouped chips. Stays on a single line at desktop widths; wraps on narrow screens |
 | Story rows | Beyond the Map: alternating text-and-photo rows (photo right, then left), photo column 220-300 px, stacking to one column under 860 px. Replaces the four-photo row in the earlier plan to match the current site |
-| Image lightbox | Optional. The current site opens photos in a modal; if kept, use a native `<dialog>` so it works with little JavaScript, and make sure images are readable without it |
+| Image lightbox | Beyond the Map photos open larger in a native `<dialog>`. Without JavaScript the link opens the large image directly |
 | Confidentiality note | Muted text with a 4 px `--sage-dark` left border, under the project grid |
 | Buttons | Pill, `--sage-dark` fill, white bold text, hover `--sage-darker`. Icon buttons: 38 px white circles (raise to 44 px for touch) |
-| Contact block | Charcoal section: one-line lede, Get in touch (mailto), Resume download, LinkedIn icon |
-| Footer | Charcoal, copyright, email, LinkedIn, GitHub, Resume |
+| Contact page | Short intro (body of `contact.md`) with Get in touch and Download CV, beside a details card: email, LinkedIn, GitHub, location, CV |
+| Footer | Charcoal, email, LinkedIn, GitHub, Resume, then copyright, location and "Last updated" (build month) |
+| Link preview image | `public/og-image.jpg`, 1200×630: photo, name, title, one-line summary on charcoal with contour rings |
 
 ## Accessibility and motion
 - Visible focus on every interactive element: 3px outline in `--sage-dark` on light, `--sage` on dark, with a 3 px offset.

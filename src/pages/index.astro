@@ -8,18 +8,20 @@ import { url } from '../lib/site';
 
 const home = await getPage('home');
 const contact = await getPage('contact');
-const { title, summary, headline, tagline, intro, heroImage, heroAlt, featuredCount = 3 } = home.data;
+const { title, summary, headline, tagline, intro, heroImage, heroAlt, featuredCount = 3, gisSince, glance = [] } = home.data;
+
+// Whole years since the first GIS role, e.g. 2021-07 -> 5 in Nov 2026
+let years = 0;
+if (gisSince) {
+  const [y, m] = gisSince.split('-').map(Number);
+  const now = new Date();
+  years = Math.floor(((now.getFullYear() - y) * 12 + (now.getMonth() + 1 - m)) / 12);
+}
+const facts = glance.map((g) => ({ ...g, value: g.value.replace('{years}', String(years)) }));
 const { email, linkedin, github, resumePdf } = contact.data;
 
 const featured = (await getProjects()).filter((p) => p.data.featured).slice(0, featuredCount);
 
-const sections = [
-  { label: 'Experience', path: 'experience/', blurb: 'Roles and what I delivered in each' },
-  { label: 'Projects', path: 'projects/', blurb: 'Case studies: problem, approach, outcome' },
-  { label: 'Skills & Education', path: 'skills-education/', blurb: 'Tools, methods and training' },
-  { label: 'Beyond the Map', path: 'beyond-the-map/', blurb: 'The person behind the work' },
-  { label: 'Contact', path: 'contact/', blurb: 'Get in touch or download my CV' },
-];
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -53,22 +55,20 @@ const jsonLd = {
     </div>
   </section>
 
-  <section class="section section--alt" aria-labelledby="find-title">
-    <div class="wrap">
-      <h2 class="section-title" id="find-title">What you'll find here</h2>
-      <p class="section-lede">Start wherever is most useful to you.</p>
-      <ul class="link-cards">
-        {sections.map((s) => (
-          <li>
-            <a class="link-card" href={url(s.path)}>
-              <strong>{s.label} <Icon name="arrow" size={16} /></strong>
-              <span>{s.blurb}</span>
-            </a>
-          </li>
-        ))}
-      </ul>
-    </div>
-  </section>
+  {facts.length > 0 && (
+    <section class="glance" aria-label="At a glance">
+      <div class="wrap">
+        <dl class="glance-list">
+          {facts.map((f) => (
+            <div class="glance-item">
+              <dt>{f.value}</dt>
+              <dd>{f.label}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </section>
+  )}
 
   {featured.length > 0 && (
     <section class="section" aria-labelledby="featured-title">
@@ -82,4 +82,17 @@ const jsonLd = {
       </div>
     </section>
   )}
+
+  <section class="section section--dark cta on-dark" aria-labelledby="cta-title">
+    <div class="wrap cta-inner">
+      <div>
+        <h2 class="section-title" id="cta-title">Let's talk</h2>
+        <p class="section-lede">Hiring for GIS, asset management or spatial data work? I'd be glad to hear from you.</p>
+      </div>
+      <div class="actions">
+        {email && <a class="btn" href={`mailto:${email}`}><Icon name="mail" /> Get in touch</a>}
+        {resumePdf && <a class="btn btn--light" href={url(resumePdf)} download><Icon name="download" /> Resume</a>}
+      </div>
+    </div>
+  </section>
 </Base>

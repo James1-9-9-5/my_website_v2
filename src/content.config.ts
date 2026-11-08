@@ -64,11 +64,14 @@ const pages = defineCollection({
         heroImage: image().optional(),
         heroAlt: z.string().optional(),
         featuredCount: z.number().min(1).max(6).optional(),
+        gisSince: z.string().regex(/^\d{4}-\d{2}$/).optional(),
+        glance: z.array(z.object({ value: z.string(), label: z.string() })).optional(),
         // contact
         email: z.email().optional(),
         linkedin: z.url().optional(),
         github: z.url().optional(),
         resumePdf: z.string().optional(),
+        location: z.string().optional(),
         // beyond the map
         rows: z
           .array(

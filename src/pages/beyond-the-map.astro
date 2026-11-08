@@ -1,11 +1,17 @@
 ---
-import { Image } from 'astro:assets';
+import { Image, getImage } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import PageHeader from '../components/PageHeader.astro';
 import { getPage } from '../lib/content';
 
 const page = await getPage('beyond-the-map');
-const rows = page.data.rows ?? [];
+const rows = await Promise.all(
+  (page.data.rows ?? []).map(async (row) => ({
+    ...row,
+    // Larger copy for the click-to-enlarge view (also the link target without JavaScript)
+    large: (await getImage({ src: row.image, width: Math.min(1400, row.image.width) })).src,
+  })),
+);
 ---
 <Base title={page.data.title} description={page.data.summary}>
   <PageHeader title={page.data.title} lede={page.data.summary} />
@@ -17,19 +23,48 @@ const rows = page.data.rows ?? [];
             {row.paragraphs.map((p) => <p>{p}</p>)}
           </div>
           <figure>
-            <Image
-              src={row.image}
-              alt={row.alt}
-              width={Math.min(600, row.image.width)}
-              widths={[300, 600, 900].filter((w) => w <= row.image.width)}
-              sizes="(max-width: 860px) 420px, 300px"
-              loading={i === 0 ? 'eager' : 'lazy'}
-              decoding="async"
-            />
+            <a class="photo-link" href={row.large} data-lightbox data-caption={row.caption ?? ''} aria-label={`Enlarge photo: ${row.alt}`}>
+              <Image
+                src={row.image}
+                alt={row.alt}
+                width={Math.min(600, row.image.width)}
+                widths={[300, 600, 900].filter((w) => w <= row.image.width)}
+                sizes="(max-width: 860px) 420px, 300px"
+                loading={i === 0 ? 'eager' : 'lazy'}
+                decoding="async"
+              />
+            </a>
             {row.caption && <figcaption>{row.caption}</figcaption>}
           </figure>
         </div>
       ))}
     </div>
   </section>
+
+  <dialog class="lightbox" aria-label="Enlarged photo">
+    <form method="dialog"><button class="lightbox-close" aria-label="Close">&times;</button></form>
+    <img alt="" />
+    <p class="lightbox-caption"></p>
+  </dialog>
+
+  <script>
+    const dialog = document.querySelector<HTMLDialogElement>('.lightbox');
+    if (dialog && typeof dialog.showModal === 'function') {
+      const img = dialog.querySelector('img')!;
+      const caption = dialog.querySelector('.lightbox-caption')!;
+      document.querySelectorAll<HTMLAnchorElement>('[data-lightbox]').forEach((link) => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          img.src = link.href;
+          img.alt = link.querySelector('img')?.alt ?? '';
+          caption.textContent = link.dataset.caption ?? '';
+          dialog.showModal();
+        });
+      });
+      // Click outside the photo closes it
+      dialog.addEventListener('click', (e) => {
+        if (e.target === dialog) dialog.close();
+      });
+    }
+  </script>
 </Base>
