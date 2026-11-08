@@ -97,9 +97,9 @@ Body: the personal story in short sections, with images inline. Every image need
 ## Contact (`contact.md`)
 | Field | Type | Notes |
 |-------|------|-------|
-| intro | string | One line inviting a conversation |
+| intro | string | One line inviting employers to get in touch |
 | linkedin | url | |
-| email | string | Decide: show a mailto link, or use a contact form later |
+| email | string | Shown as a mailto link (no contact form in v1) |
 | resumePdf | path | Downloadable CV; version the filename |
 
 ## Validation

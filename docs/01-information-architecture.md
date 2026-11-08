@@ -17,19 +17,19 @@
 - Current page is marked with an underline and `aria-current="page"`
 - Utility: LinkedIn / GitHub / email icon links
 - Accessibility: "Skip to main content" link first in the DOM
-- Footer: [copyright, contact, links]
+- Footer: © [year] James Spooner, email (mailto), LinkedIn, GitHub, Resume (PDF)
 
 ## Page purposes
 | Page | Purpose | Layout |
 |------|---------|--------|
-| Home | Say who I help and what I deliver; route visitors onward | Single page |
+| Home | Say who I help and what I deliver; route employers onward | Single page |
 | Experience | Show career history and what I achieved in each role | Single page, one section per role |
 | Projects | Prove capability through case studies | Index + one page per project |
 | Skills & Education | Tools, methods, credentials, training | Single page |
 | Beyond the Map | The person behind the work | Single page |
-| Contact | Make it easy to get in touch | Single page |
+| Contact | Make it easy for an employer to get in touch | Single page |
 
-CV: [decide: a downloadable PDF linked from Experience and Skills & Education, or its own /cv page]
+CV: a downloadable PDF in `public/`, linked from the Home hero, Experience, Skills & Education, Contact and the footer. No `/cv` page (decision D7).
 
 ## Home page order
 1. Headline + intro paragraph
@@ -46,3 +46,4 @@ CV: [decide: a downloadable PDF linked from Experience and Skills & Education, o
 - Lowercase, hyphenated. No dates in URLs.
 - Only Projects uses a `[slug]` (a different page per project). The other sections are single pages.
 - Slugs never change after launch (redirect if they must).
+- Planned slugs: `/projects/asset-management-systems`, `/projects/lidar-analysis-workflow`, `/projects/spatial-data-automation`.

@@ -14,11 +14,12 @@
 ```
 Read AGENTS.md and docs/[relevant doc].
 Task: [one task from docs/09-build-plan.md]
-Constraints: follow docs/04-design-system.md; do not add dependencies without asking.
+Constraints: follow docs/04-design-system.md; Canadian spelling; do not add dependencies without asking.
 Done when: [acceptance criteria]; lint, tests and build pass.
 ```
 
 ## Guardrails
 - Never commit secrets, client data, or unreleased community data.
-- Do not publish content marked "Permission: no" in doc 08.
+- Never publish a project whose clearance is `pending` (doc 02, doc 08). The build enforces this; do not work around it.
+- Do not add real names, locations or sensitive layers to a `redacted` project.
 - Ask before adding a dependency or changing the stack.
