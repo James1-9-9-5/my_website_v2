@@ -5,7 +5,7 @@ import { defineConfig } from 'astro/config';
 // (https://james1-9-9-5.github.io/my_website_v2/) keep this false.
 // When jamesspooner.org is moved to this repo, set it to true
 // (see README "Moving jamesspooner.org to this site").
-const CUSTOM_DOMAIN = false;
+const CUSTOM_DOMAIN = true;
 
 export default defineConfig({
   site: CUSTOM_DOMAIN ? 'https://jamesspooner.org' : 'https://james1-9-9-5.github.io',
