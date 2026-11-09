@@ -63,6 +63,10 @@ const pages = defineCollection({
         intro: z.string().optional(),
         heroImage: image().optional(),
         heroAlt: z.string().optional(),
+        heroBackgrounds: z
+          .array(z.object({ image: image(), focus: z.string().default('50% 50%'), flip: z.boolean().default(false) }))
+          .max(6)
+          .optional(),
         featuredCount: z.number().min(1).max(6).optional(),
         gisSince: z.string().regex(/^\d{4}-\d{2}$/).optional(),
         glance: z.array(z.object({ value: z.string(), label: z.string() })).optional(),

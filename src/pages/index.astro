@@ -8,7 +8,7 @@ import { url } from '../lib/site';
 
 const home = await getPage('home');
 const contact = await getPage('contact');
-const { title, summary, headline, tagline, intro, heroImage, heroAlt, featuredCount = 3, gisSince, glance = [] } = home.data;
+const { title, summary, headline, tagline, intro, heroImage, heroAlt, heroBackgrounds = [], featuredCount = 3, gisSince, glance = [] } = home.data;
 
 // Whole years since the first GIS role, e.g. 2021-07 -> 5 in Nov 2026
 let years = 0;
@@ -17,6 +17,20 @@ if (gisSince) {
   const now = new Date();
   years = Math.floor(((now.getFullYear() - y) * 12 + (now.getMonth() + 1 - m)) / 12);
 }
+// Crossfade timing for any number of hero photos: each one holds for SLIDE
+// seconds and fades over FADE seconds. Keyframes depend on the count, so
+// they're generated here rather than hard-coded in the CSS.
+const SLIDE = 7;
+const FADE = 1.2;
+const n = heroBackgrounds.length;
+const period = n * SLIDE;
+const pct = (s: number) => `${((s / period) * 100).toFixed(3)}%`;
+const heroKeyframes =
+  n > 1
+    ? `@keyframes hero-fade { 0% { opacity: 0; } ${pct(FADE)} { opacity: 1; } ${pct(SLIDE)} { opacity: 1; } ${pct(SLIDE + FADE)} { opacity: 0; } 100% { opacity: 0; } }
+       .hero-bg img { animation: hero-fade ${period}s linear infinite; animation-delay: calc(var(--i) * ${SLIDE}s - ${FADE}s); }`
+    : '';
+
 const facts = glance.map((g) => ({ ...g, value: g.value.replace('{years}', String(years)) }));
 const { email, linkedin, github, resumePdf } = contact.data;
 
@@ -37,20 +51,38 @@ const jsonLd = {
 ---
 <Base title={title} description={summary} jsonLd={jsonLd}>
   <section class="hero on-dark" aria-labelledby="hero-title">
-    <div class="wrap hero-grid">
-      {heroImage && (
-        <Image src={heroImage} alt={heroAlt ?? ''} class="profile-photo" width={180} height={180} densities={[1, 2]} loading="eager" fetchpriority="high" />
-      )}
-      <div>
+    {heroKeyframes && <style is:inline set:html={heroKeyframes} />}
+    {heroBackgrounds.length > 0 && (
+      <div class="hero-bg" aria-hidden="true">
+        {heroBackgrounds.map((bg, i) => (
+          <Image
+            src={bg.image}
+            alt=""
+            width={Math.min(1920, bg.image.width)}
+            widths={[800, 1280, 1920].filter((w) => w <= bg.image.width)}
+            sizes="100vw"
+            quality={70}
+            style={`object-position: ${bg.focus}; --i: ${i}${bg.flip ? '; transform: scaleX(-1)' : ''}`}
+            loading={i === 0 ? 'eager' : 'lazy'}
+            fetchpriority={i === 0 ? 'high' : undefined}
+          />
+        ))}
+      </div>
+    )}
+    <div class="wrap hero-inner">
+      <div class="hero-id">
+        {heroImage && (
+          <Image src={heroImage} alt={heroAlt ?? ''} class="profile-photo" width={96} height={96} densities={[1, 2]} fit="cover" position="top" loading="eager" />
+        )}
         <p class="hero-name">James Spooner</p>
-        <h1 id="hero-title">{headline}</h1>
-        {tagline && <p class="tagline">{tagline}</p>}
-        {intro && <p class="intro">{intro}</p>}
-        <div class="actions">
-          {email && <a class="btn" href={`mailto:${email}`}><Icon name="mail" /> Get in touch</a>}
-          {resumePdf && <a class="btn btn--light" href={url(resumePdf)} download><Icon name="download" /> Resume</a>}
-          {linkedin && <a class="btn btn--light" href={linkedin} rel="noopener"><Icon name="linkedin" /> LinkedIn</a>}
-        </div>
+      </div>
+      <h1 id="hero-title">{headline}</h1>
+      {tagline && <p class="tagline">{tagline}</p>}
+      {intro && <p class="intro">{intro}</p>}
+      <div class="actions">
+        {email && <a class="btn" href={`mailto:${email}`}><Icon name="mail" /> Get in touch</a>}
+        {resumePdf && <a class="btn btn--light" href={url(resumePdf)} download><Icon name="download" /> Resume</a>}
+        {linkedin && <a class="btn btn--light" href={linkedin} rel="noopener"><Icon name="linkedin" /> LinkedIn</a>}
       </div>
     </div>
   </section>

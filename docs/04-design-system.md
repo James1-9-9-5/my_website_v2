@@ -64,7 +64,7 @@ Values taken from the current site's `style.css` (James1-9-9-5.github.io). The o
 
 Fonts: self-host both families with Fontsource (`@fontsource/source-sans-3`, `@fontsource/bricolage-grotesque`) instead of Google Fonts.
 
-Icons: the current site loads all of Font Awesome from a CDN for about six icons (envelope, download, LinkedIn, GitHub, location pin). Replace with inline SVGs in an `Icon` component: no external request, no dependency.
+Icons: inline SVGs in `src/components/Icon.astro` (no Font Awesome, no external request). LinkedIn and GitHub use their official logo marks.
 
 ## Contrast checks (calculated for the values above)
 | Pair | Ratio | Use |
@@ -93,7 +93,7 @@ Not in v1 (decision D3: later). The header and footer are already dark, so a dar
 | Component | Notes |
 |-----------|-------|
 | Header + nav | Sticky charcoal bar, centred tabs, bold labels, skip-to-content link first in the DOM. Under 860 px: name on the left and a Menu button (a `<details>` element, so it works without JavaScript) that drops down the full list |
-| Hero | Charcoal with the contour-line SVG background from the current site. Round profile photo (180 px, `--sage-dark` border), name as H1, tagline "GIS Specialist. Adventure enthusiast. Professional map nerd.", summary, and three actions: Get in touch, Resume, LinkedIn |
+| Hero | Full-width photo background: 1-6 photos (`heroBackgrounds` in `home.md`) crossfading every 7 s (timing generated for any count in `index.astro`), slightly desaturated, behind a charcoal tint that is darkest behind the text (white text stays above 4.5:1). Motion off: first photo only. Small round portrait beside the name, then headline (H1), tagline, intro and Get in touch / Resume / LinkedIn |
 | Section title | Heading with a 48×4 px `--sage` bar beneath |
 | At a glance strip | Four facts under the hero (years in GIS, countries, core tools, current role), from `glance` in `home.md`; years are calculated at build time from `gisSince`. Replaces the "What you'll find here" row, which repeated the nav |
 | Closing call to action | "Let's talk" band at the bottom of Home with Get in touch and Resume |

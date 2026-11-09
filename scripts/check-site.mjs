@@ -47,7 +47,8 @@ for (const file of htmlFiles) {
   if (h1s !== 1) fail(file, `expected 1 <h1>, found ${h1s}`);
 
   for (const img of html.match(/<img\b[^>]*>/g) || []) {
-    if (!/\salt="/.test(img)) fail(file, `image without alt: ${img.slice(0, 80)}...`);
+    // alt="" (or a bare alt) is fine for decorative images; a missing alt is not
+    if (!/\salt(="|[\s>/])/.test(img)) fail(file, `image without alt: ${img.slice(0, 80)}...`);
   }
 
   for (const [, ref] of html.matchAll(/\s(?:href|src)="([^"]+)"/g)) {

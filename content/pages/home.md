@@ -5,17 +5,23 @@ headline: I help First Nations communities build and maintain asset management a
 tagline: GIS Specialist. Adventure enthusiast. Professional map nerd.
 intro: Field inspections become live dashboards, decisions run on real data, and local teams are trained to run it all themselves.
 heroImage: ../../media-source/home/profile.jpeg
-heroAlt: James Spooner
-featuredCount: 3
-# "At a glance" strip. {years} is worked out at build time from gisSince.
-gisSince: 2021-07
-glance:
-  - value: "{years}+ years"
-    label: in GIS, from intern to specialist
-  - value: 3 countries
-    label: Canada, the UK and South Africa
-  - value: ArcGIS · PostGIS · Python
-    label: Core tools, from field apps to automation
-  - value: Tapestry Research Group
-    label: GIS Specialist since January 2025
+heroAlt: Portrait of James Spooner
+# Hero background: 1-6 photos that fade between each other behind the text,
+# in this order (the first one shows on its own if a visitor has motion turned off).
+# Wide landscape photos work best. focus (optional) = which part stays in
+# view when cropped, e.g. "50% 30%" (left-right, top-bottom).
+# flip: true mirrors a photo, to move its subject out from behind the text.
+# Stock photos from Unsplash/Pexels (free licence, no credit required).
+heroBackgrounds:
+  - image: ../../media-source/home/stock-1.jpeg   # Lions Gate Bridge, Stanley Park
+    focus: 60% 50%
+  - image: ../../media-source/home/stock-3.jpeg   # Garibaldi Lake
+    focus: 50% 60%
+  - image: ../../media-source/home/stock-4.jpeg   # Orcas
+    focus: 50% 55%
+  - image: ../../media-source/home/stock-5.jpeg   # Lake O'Hara
+    focus: 50% 55%
+  - image: ../../media-source/home/stock-2.jpeg   # Black bear (mirrored so the bear sits right of the text)
+    focus: 50% 45%
+    flip: true
 ---
