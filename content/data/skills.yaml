@@ -3,7 +3,7 @@
 - id: gis-software
   order: 1
   group: GIS software
-  items: [ArcGIS Pro, ArcGIS Online, Field Maps, Survey123, QuickCapture, Dashboards, QGIS]
+  items: [ArcGIS Pro, ArcGIS Online, Field Maps, Survey123, QuickCapture, Dashboards, QGIS, Cartography & map design]
 - id: data-programming
   order: 2
   group: Data & programming

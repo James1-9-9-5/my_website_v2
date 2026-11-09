@@ -46,4 +46,4 @@ CV: a downloadable PDF in `public/`, linked from the Home hero, Experience, Skil
 - Lowercase, hyphenated. No dates in URLs.
 - Only Projects uses a `[slug]` (a different page per project). The other sections are single pages.
 - Slugs never change after launch (redirect if they must).
-- Planned slugs: `/projects/asset-management-systems`, `/projects/lidar-analysis-workflow`, `/projects/spatial-data-automation`.
+- Planned slugs: `/projects/asset-management-systems`, `/projects/bioregional-atlas`, `/projects/spatial-data-automation`.

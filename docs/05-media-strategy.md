@@ -22,7 +22,7 @@
 | Home | Headshot (`profile.jpeg`) | [x] |
 | Home | Default share image (Open Graph, 1200x630) | [ ] |
 | Projects | Cover: Asset Management Systems (current thumbnail) | [x] |
-| Projects | Cover: LiDAR Analysis Workflow (current thumbnail) | [x] |
+| Projects | Cover: Bioregional Atlas (current thumbnail) | [x] |
 | Projects | Cover: Spatial Data Automation (current thumbnail) | [x] |
 | Projects | 1-3 inline visuals per case study (optional at launch; current covers used, D14) | [ ] |
 | Beyond the Map | Five story-row photos (from current site) | [x] |

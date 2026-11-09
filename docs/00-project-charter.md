@@ -28,7 +28,7 @@ Potential employers only (decision D6).
 ## Scope
 **In scope (v1):**
 - The 7 routes in doc 01 (Home, Experience, Projects + case studies, Skills & Education, Beyond the Map, Contact, 404)
-- 3 case studies: Asset Management Systems, LiDAR Analysis Workflow, Spatial Data Automation
+- 3 case studies: Asset Management Systems, Bioregional Atlas, Spatial Data Automation
 - Downloadable CV PDF
 - SEO, accessibility and performance checks (doc 07)
 - Deploy to GitHub Pages and cut jamesspooner.org over at launch (D5)

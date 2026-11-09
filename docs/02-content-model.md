@@ -64,7 +64,7 @@ Body template:
 
 "Tools" is displayed from the front matter, not typed in the body, so each tool can link to the Skills section.
 
-Starting set from the current site: Asset Management Systems, LiDAR Analysis Workflow, Spatial Data Automation.
+Starting set from the current site: Asset Management Systems, Bioregional Atlas, Spatial Data Automation.
 
 ### Clearance
 - `cleared`: client or community has approved publication.

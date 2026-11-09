@@ -13,7 +13,7 @@
 | H1 | Home | Headline, tagline, intro | n/a | [ ] | [ ] | Outlined |
 | E1 | Experience | One file per role + "Earlier roles" summary | n/a | [ ] | n/a | Drafted (migrate from current site) |
 | PR1 | Projects | Asset Management Systems | pending | [ ] | [ ] | Idea |
-| PR2 | Projects | LiDAR Analysis Workflow | pending | [ ] | [ ] | Idea |
+| PR2 | Projects | Bioregional Atlas | pending | [ ] | [ ] | Idea |
 | PR3 | Projects | Spatial Data Automation | pending | [ ] | [ ] | Idea |
 | S1 | Skills & Education | skills.yaml, education.yaml | n/a | [ ] | n/a | Drafted (migrate from current site) |
 | B1 | Beyond the Map | Story + photo row | n/a | [ ] | [ ] | Drafted (migrate and proofread) |
