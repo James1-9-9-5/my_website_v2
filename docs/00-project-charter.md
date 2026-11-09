@@ -6,7 +6,7 @@ Status: AGREED (2026-11-08). Changes go through doc 11.
 This site is a one-stop "About me" and "My work" page I can send to potential employers.
 
 ## Positioning
-- **Headline (homepage H1):** I help First Nations communities build and maintain asset management and work order scheduling systems.
+- **Headline (homepage statement under the name):** I build asset management and maintenance systems with First Nations communities, and train local teams to run them.
 - **One-sentence summary:** GIS Specialist at Tapestry Research Group who turns field data, spatial analysis and automation into maintenance and asset systems that communities can run day to day.
 - **What I want to be known for:** GIS, asset management, maintenance scheduling, field data collection (Survey123 / Field Maps), LiDAR analysis, spatial data automation, community-centred mapping.
 

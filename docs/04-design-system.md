@@ -93,7 +93,7 @@ Not in v1 (decision D3: later). The header and footer are already dark, so a dar
 | Component | Notes |
 |-----------|-------|
 | Header + nav | Sticky charcoal bar, centred tabs, bold labels, skip-to-content link first in the DOM. Under 860 px: name on the left and a Menu button (a `<details>` element, so it works without JavaScript) that drops down the full list |
-| Hero | Full-width photo background: 1-6 photos (`heroBackgrounds` in `home.md`) crossfading every 7 s (timing generated for any count in `index.astro`), slightly desaturated, behind a charcoal tint that is darkest behind the text (white text stays above 4.5:1). Motion off: first photo only. Small round portrait beside the name, then headline (H1), tagline, intro and Get in touch / Resume / LinkedIn |
+| Hero | Full-width photo background: 1-6 photos (`heroBackgrounds` in `home.md`) crossfading every 7 s (timing generated for any count in `index.astro`), slightly desaturated, behind a charcoal tint darkest behind the text. Motion off: first photo only. Type order: round portrait beside the name (H1, largest), tagline in sage under the name, then the headline as a medium-weight statement, the intro in a softer colour, and Get in touch / Resume / LinkedIn. Kept compact (64 px top padding) so the At a glance strip shows on a laptop screen without scrolling |
 | Section title | Heading with a 48×4 px `--sage` bar beneath |
 | At a glance strip | Four facts under the hero (years in GIS, countries, core tools, current role), from `glance` in `home.md`; years are calculated at build time from `gisSince`. Replaces the "What you'll find here" row, which repeated the nav |
 | Closing call to action | "Let's talk" band at the bottom of Home with Get in touch and Resume |

@@ -72,12 +72,14 @@ const jsonLd = {
     <div class="wrap hero-inner">
       <div class="hero-id">
         {heroImage && (
-          <Image src={heroImage} alt={heroAlt ?? ''} class="profile-photo" width={96} height={96} densities={[1, 2]} fit="cover" position="top" loading="eager" />
+          <Image src={heroImage} alt={heroAlt ?? ''} class="profile-photo" width={88} height={88} densities={[1, 2]} fit="cover" position="top" loading="eager" />
         )}
-        <p class="hero-name">James Spooner</p>
+        <div>
+          <h1 id="hero-title">James Spooner</h1>
+          {tagline && <p class="tagline">{tagline}</p>}
+        </div>
       </div>
-      <h1 id="hero-title">{headline}</h1>
-      {tagline && <p class="tagline">{tagline}</p>}
+      <p class="hero-statement">{headline}</p>
       {intro && <p class="intro">{intro}</p>}
       <div class="actions">
         {email && <a class="btn" href={`mailto:${email}`}><Icon name="mail" /> Get in touch</a>}
