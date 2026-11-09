@@ -26,7 +26,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const ogImage = new URL(url('og-image.jpg'), Astro.site).href;
 const now = new Date();
 const year = now.getFullYear();
-const ICON_VERSION = 2;
+const ICON_VERSION = 3;
 const updated = now.toLocaleDateString('en-CA', { month: 'long', year: 'numeric', timeZone: 'America/Vancouver' });
 const links = NAV.map((item) => ({
   label: item.label,
