@@ -26,6 +26,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const ogImage = new URL(url('og-image.jpg'), Astro.site).href;
 const now = new Date();
 const year = now.getFullYear();
+const ICON_VERSION = 2;
 const updated = now.toLocaleDateString('en-CA', { month: 'long', year: 'numeric', timeZone: 'America/Vancouver' });
 const links = NAV.map((item) => ({
   label: item.label,
@@ -53,11 +54,12 @@ const links = NAV.map((item) => ({
     <meta property="og:image:alt" content="James Spooner, GIS Specialist: asset management, field data and maintenance systems with First Nations communities." />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="theme-color" content="#2b2b2b" />
-    <link rel="icon" href={url('favicon.ico')} sizes="any" />
-    <link rel="icon" href={url('favicon.svg')} type="image/svg+xml" />
-    <link rel="manifest" href={url('site.webmanifest')} />
-    <link rel="icon" type="image/png" sizes="32x32" href={url('favicon-32x32.png')} />
-    <link rel="apple-touch-icon" sizes="180x180" href={url('apple-touch-icon.png')} />
+    <!-- ?v= forces browsers to fetch new icons; bump it whenever the icons change -->
+    <link rel="icon" href={url(`favicon.ico?v=${ICON_VERSION}`)} sizes="any" />
+    <link rel="icon" href={url(`favicon.svg?v=${ICON_VERSION}`)} type="image/svg+xml" />
+    <link rel="manifest" href={url(`site.webmanifest?v=${ICON_VERSION}`)} />
+    <link rel="icon" type="image/png" sizes="32x32" href={url(`favicon-32x32.png?v=${ICON_VERSION}`)} />
+    <link rel="apple-touch-icon" sizes="180x180" href={url(`apple-touch-icon.png?v=${ICON_VERSION}`)} />
     <link rel="sitemap" href={url('sitemap.xml')} />
     {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
   </head>

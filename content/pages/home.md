@@ -26,14 +26,16 @@ glance:
 # Stock photos from Unsplash/Pexels (free licence, no credit required).
 heroBackgrounds:
   - image: ../../media-source/home/stock-1.jpeg   # Lions Gate Bridge, Stanley Park
-    focus: 60% 50%
+    focus: 70% 58%
   - image: ../../media-source/home/stock-3.jpeg   # Garibaldi Lake
-    focus: 50% 60%
+    focus: 50% 48%
   - image: ../../media-source/home/stock-4.jpeg   # Orcas
-    focus: 50% 55%
+    focus: 45% 58%
   - image: ../../media-source/home/stock-5.jpeg   # Lake O'Hara
-    focus: 50% 55%
-  - image: ../../media-source/home/stock-2.jpeg   # Black bear (mirrored so the bear sits right of the text)
     focus: 50% 45%
-    flip: true
+  # Black bear: too dark to read behind the tint, so left out for now.
+  # To bring it back, remove the # from the next three lines.
+  # - image: ../../media-source/home/stock-2.jpeg
+  #   focus: 50% 55%
+  #   flip: true
 ---

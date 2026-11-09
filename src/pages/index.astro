@@ -27,7 +27,9 @@ const period = n * SLIDE;
 const pct = (s: number) => `${((s / period) * 100).toFixed(3)}%`;
 const heroKeyframes =
   n > 1
-    ? `@keyframes hero-fade { 0% { opacity: 0; } ${pct(FADE)} { opacity: 1; } ${pct(SLIDE)} { opacity: 1; } ${pct(SLIDE + FADE)} { opacity: 0; } 100% { opacity: 0; } }
+    // Each photo fades in on top, then stays fully visible until the next one
+    // has finished fading in over it, so the dark background never shows through.
+    ? `@keyframes hero-fade { 0% { opacity: 0; } ${pct(FADE)} { opacity: 1; } ${pct(SLIDE + FADE)} { opacity: 1; } ${pct(SLIDE + 2 * FADE)} { opacity: 0; } 100% { opacity: 0; } }
        .hero-bg img { animation: hero-fade ${period}s linear infinite; animation-delay: calc(var(--i) * ${SLIDE}s - ${FADE}s); }`
     : '';
 
@@ -60,11 +62,11 @@ const jsonLd = {
             alt=""
             width={Math.min(1920, bg.image.width)}
             widths={[800, 1280, 1920].filter((w) => w <= bg.image.width)}
-            sizes="100vw"
+            sizes="(min-width: 861px) 70vw, 100vw"
             quality={70}
             style={`object-position: ${bg.focus}; --i: ${i}${bg.flip ? '; transform: scaleX(-1)' : ''}`}
-            loading={i === 0 ? 'eager' : 'lazy'}
-            fetchpriority={i === 0 ? 'high' : undefined}
+            loading="eager"
+            fetchpriority={i === 0 ? 'high' : 'low'}
           />
         ))}
       </div>
