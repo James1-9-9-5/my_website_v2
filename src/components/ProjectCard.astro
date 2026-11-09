@@ -5,8 +5,7 @@
 import { Image } from 'astro:assets';
 import { getEntry, type CollectionEntry } from 'astro:content';
 import Icon from './Icon.astro';
-import { getSkillNames } from '../lib/content';
-import { slugify, url } from '../lib/site';
+import { url } from '../lib/site';
 
 interface Props {
   project: CollectionEntry<'projects'>;
@@ -18,7 +17,6 @@ const Heading = headingLevel;
 const href = url(`projects/${project.id}/`);
 const dialogId = `project-${project.id}`;
 const role = await getEntry(project.data.role);
-const skillNames = await getSkillNames();
 ---
 <article class="card">
   <div class="card-thumb">
@@ -44,13 +42,7 @@ const skillNames = await getSkillNames();
       <>
         <h3>Tools</h3>
         <ul class="chips">
-          {tools.map((tool) => (
-            <li>
-              {skillNames.has(tool)
-                ? <a class="chip" href={url(`skills-education/#${slugify(tool)}`)}>{tool}</a>
-                : <span class="chip">{tool}</span>}
-            </li>
-          ))}
+          {tools.map((tool) => <li><span class="chip">{tool}</span></li>)}
         </ul>
       </>
     )}
