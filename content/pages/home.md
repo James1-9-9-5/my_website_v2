@@ -1,6 +1,6 @@
 ---
 title: James Spooner | GIS Specialist
-summary: GIS Specialist building asset management, field data and maintenance scheduling systems with First Nations communities. ArcGIS, PostGIS, LiDAR and Python automation.
+summary: GIS Specialist building asset management, field data, and maintenance scheduling systems with First Nations communities. ArcGIS, PostGIS, LiDAR, and Python automation.
 headline: I build asset management and maintenance systems with First Nations communities, and train local teams to run them.
 tagline: GIS Specialist. Professional map nerd. Usually outdoors.
 # intro (optional): a second line under the headline. Left out to keep the hero short.
@@ -14,9 +14,9 @@ glance:
     label: in GIS, from intern to specialist
   - value: 3 countries
     label: Worked in Canada, the UK, and South Africa
-  - value: ArcGIS, PostGIS, Python
-    label: Core tools, from field apps to automation
-  - value: Tapestry Research Group
+  - value: First Nations
+    label: Asset systems built and handed over
+  - value: Tapestry
     label: GIS Specialist since January 2025
 # Hero background: 1-6 photos that fade between each other behind the text,
 # in this order (the first one shows on its own if a visitor has motion turned off).

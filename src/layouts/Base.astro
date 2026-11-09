@@ -27,7 +27,7 @@ const { email, linkedin, github, resumePdf } = contact.data;
 const fullTitle = title.includes('James Spooner') ? title : `${title} | James Spooner`;
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const ogImage = new URL(image ?? url('og-image.jpg'), Astro.site).href;
-const ogImageAlt = imageAlt ?? 'James Spooner, GIS Specialist: asset management, field data and maintenance systems with First Nations communities.';
+const ogImageAlt = imageAlt ?? 'James Spooner, GIS Specialist: asset management, field data, and maintenance systems with First Nations communities.';
 const now = new Date();
 const year = now.getFullYear();
 const ICON_VERSION = 3;
@@ -106,7 +106,7 @@ const links = NAV.map((item) => ({
           {github && <li><a href={github} rel="noopener"><Icon name="github" /> GitHub</a></li>}
           {resumePdf && <li><a href={url(resumePdf)} download><Icon name="download" /> Resume</a></li>}
         </ul>
-        <small>&copy; {year} James Spooner · Vancouver, BC · Last updated {updated}</small>
+        <small>&copy; {year} James Spooner · Vancouver, Canada · Last updated {updated}</small>
       </div>
     </footer>
   </body>

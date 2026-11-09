@@ -2,16 +2,16 @@
 - id: listen
   order: 1
   title: Start by listening
-  text: Before anything gets built, I learn what the community needs, what systems already exist and who will run them day to day. We agree the goals together.
+  text: Before anything gets built, I learn what the community needs, what systems already exist, and who will run them day to day. We agree the goals together.
 - id: design
   order: 2
-  title: Design it with the people who use it
-  text: Field staff, managers and leadership shape how data is collected, stored and shared, in line with the community's own data governance (OCAP).
+  title: Design it together
+  text: Field staff, managers, and leadership shape how data is collected, stored, and shared, in line with the community's own data governance (OCAP).
 - id: build
   order: 3
   title: Build in stages
-  text: I build the databases, field apps and dashboards a piece at a time, testing with the team as we go so problems show up early, not at handover.
+  text: I build the databases, field apps, and dashboards a piece at a time, testing with the team as we go so problems show up early, not at handover.
 - id: handover
   order: 4
   title: Leave it in their hands
-  text: I document everything and train local staff to run, update and troubleshoot the system themselves, and stay on hand for support.
+  text: I document everything and train local staff to run, update, and troubleshoot the system themselves, and stay on hand for support.

@@ -26,19 +26,19 @@ rows:
     caption: Reaching new heights.
     paragraphs:
       - "Outside work, you'll usually find me outdoors: hiking, bouldering, or at the gym making up for the hours behind a screen. Bouldering is my favourite because it's all problem-solving. You work a route one move at a time, fall off a few times, and then it finally clicks. I bring the same approach to tricky GIS problems."
-      - "Travel has shaped me just as much. Living and working in South Africa, Bolivia and now Canada has taught me to settle into new places, listen to different perspectives and stay adaptable, which matters when you work with different communities."
+      - "Travel has shaped me just as much. Living and working in South Africa, Bolivia, and now Canada has taught me to settle into new places, listen to different perspectives, and stay adaptable, which matters when you work with different communities."
   - side: left
     image: ../../media-source/beyond-the-map/photo1.jpg
     alt: Family and friends on a sunny marina boardwalk, all wearing red flotation suits before a boat trip.
     place: Nanaimo, Canada, 2025
     caption: Family time.
     paragraphs:
-      - "None of it would mean as much without my family and friends keeping me grounded. Moving between countries has made me value time with them even more. The best days are simple: good food, good company and fresh air."
+      - "None of it would mean as much without my family and friends keeping me grounded. Moving between countries has made me value time with them even more. The best days are simple: good food, good company, and fresh air."
   - side: right
     image: ../../media-source/beyond-the-map/photo5.jpeg
     alt: Former colleagues laughing together by the river in London at sunset, holding one friend up sideways.
     place: London, England, 2024
     caption: Making friends along the way.
     paragraphs:
-      - "The common thread through all of it is people: rangers in South Africa, conservation teams in Bolivia, my old colleagues in London (pictured on my last day). Good working relationships make for better projects, and I put the same care into every team and community I join."
+      - "The common thread through all of it is people: rangers in South Africa, conservation teams in Bolivia, and my old colleagues in London (pictured on my last day). Good working relationships make for better projects, and I put the same care into every team and community I join."
 ---
