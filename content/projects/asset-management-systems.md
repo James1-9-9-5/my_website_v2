@@ -8,8 +8,8 @@ tags: [asset-management, field-data, dashboards]
 date: 2026-11-01
 featured: true
 order: 1
-cover: ../../media-source/projects/AssetMan.jpeg
-coverAlt: Illustration of folders linking to building blocks and buildings, representing connected asset records.
+cover: ../../media-source/projects/asset-management.png
+coverAlt: Illustration of a small neighbourhood of houses, a road and a water main on a map grid, with one house flagged and linked to a live dashboard.
 clearance: redacted
 ---
 

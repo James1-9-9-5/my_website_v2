@@ -97,7 +97,7 @@ Not in v1 (decision D3: later). The header and footer are already dark, so a dar
 | Section title | Heading with a 48×4 px `--sage` bar beneath |
 | At a glance strip | Four facts under the hero (years in GIS, countries, core tools, current role), from `glance` in `home.md`; years are calculated at build time from `gisSince`. Replaces the "What you'll find here" row, which repeated the nav |
 | Closing call to action | "Let's talk" band at the bottom of Home with Get in touch and Resume |
-| Project card | Cover image (16:10), title, outcome subtitle, 1-2 line summary, "Read case study" link |
+| Project card | Cover image (16:10; the three launch covers are matching illustrations: charcoal background, faint contours, sage line drawing, one amber highlight; sources in `media-source/projects/*.svg`), title, outcome subtitle, 1-2 line summary, "Read case study" link |
 | Project grid | `auto-fit, minmax(270px, 1fr)`: 3 columns on desktop, 1 on mobile |
 | Case-study layout | Title block, then Problem, Approach, Tools (chips linking to Skills), Outcome, visuals, related role link |
 | Experience role | Two columns (meta 270 px, details), collapsing to one under 860 px. Collapsible `<details>`/`<summary>`; the newest role is open by default. Meta shows dates, duration in yrs/mos (counted inclusively, like LinkedIn, calculated at build time), and location with a pin icon |

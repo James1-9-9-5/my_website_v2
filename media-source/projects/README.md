@@ -1,1 +1,3 @@
-Original media for project case studies (not deployed). Optimised versions go to public/media/.
+Original media for project case studies (not deployed). Astro optimises the images referenced in content/projects/*.md at build time.
+
+The three cover illustrations are drawn as SVG (*.svg, the editable source) and exported to PNG (*.png, used by the site) at 1600 x 1000.

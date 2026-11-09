@@ -8,8 +8,8 @@ tags: [lidar, remote-sensing, terrain]
 date: 2026-11-01
 featured: true
 order: 2
-cover: ../../media-source/projects/LiDAR.jpeg
-coverAlt: Illustration of a dotted 3D terrain surface with contour lines and a signal pulse above it.
+cover: ../../media-source/projects/lidar-analysis-workflow.png
+coverAlt: Illustration of a mountain drawn as a LiDAR point cloud in a terrain block, with an airborne sensor scanning a highlighted line across it.
 clearance: redacted
 ---
 

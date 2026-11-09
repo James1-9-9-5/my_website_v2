@@ -8,8 +8,8 @@ tags: [automation, python, data-management]
 date: 2026-11-01
 featured: true
 order: 3
-cover: ../../media-source/projects/Automate.jpeg
-coverAlt: Illustration of gears and robotic arms in a circular cycle of arrows, representing automated processes.
+cover: ../../media-source/projects/spatial-data-automation.png
+coverAlt: Illustration of a desktop, a database and the cloud kept in sync in a loop around a clock, representing scheduled updates.
 clearance: redacted
 ---
 
