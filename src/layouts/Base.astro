@@ -32,7 +32,8 @@ const now = new Date();
 const year = now.getFullYear();
 const ICON_VERSION = 3;
 const updated = now.toLocaleDateString('en-CA', { month: 'long', year: 'numeric', timeZone: 'America/Vancouver' });
-const links = NAV.map((item) => ({
+// "Home" is left out of the nav: the name on the left links home.
+const links = NAV.filter((item) => item.path !== '').map((item) => ({
   label: item.label,
   href: url(item.path ? `${item.path}/` : ''),
   current: isCurrent(item.path, Astro.url.pathname),

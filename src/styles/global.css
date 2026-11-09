@@ -114,7 +114,7 @@ p { margin: 0 0 1em; }
   font-family: var(--font-heading); font-weight: 700; font-size: 1.05rem; white-space: nowrap;
 }
 .nav-brand--desktop:hover { color: var(--sage); }
-@media (max-width: 1020px) { .nav-brand--desktop { display: none; } .nav-desktop { grid-template-columns: 1fr; } .nav-desktop .nav-links { justify-self: center; } }
+@media (max-width: 1020px) { .nav-desktop { grid-template-columns: auto 1fr; gap: 16px; } .nav-desktop .nav-links { justify-content: flex-end; } .nav-desktop .nav-links a { padding: 0 9px; } }
 .nav-mobile { display: none; }
 @media (max-width: 860px) {
   .nav-desktop { display: none; }
