@@ -9,7 +9,7 @@ date: 2026-11-01
 featured: true
 order: 2
 cover: ../../media-source/projects/bioregional-atlas.png
-coverAlt: Illustration of an open atlas, with a topographic map of a coastline, lake, rivers and mountains on one page and a page of text on the other.
+coverAlt: Illustration of an open atlas, with a shaded topographic map of a coastline, rivers and mountains on one page and a page of text on the other.
 clearance: redacted
 ---
 

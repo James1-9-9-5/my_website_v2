@@ -9,7 +9,7 @@ date: 2026-11-01
 featured: true
 order: 3
 cover: ../../media-source/projects/spatial-data-automation.png
-coverAlt: Illustration of a desktop, a database and the cloud kept in sync in a loop around a clock, representing scheduled updates.
+coverAlt: Illustration of a desktop GIS window, a database table and a web map linked by sync icons, with a clock above showing the updates run on a schedule.
 clearance: redacted
 ---
 

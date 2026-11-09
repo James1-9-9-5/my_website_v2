@@ -9,7 +9,7 @@ date: 2026-11-01
 featured: true
 order: 1
 cover: ../../media-source/projects/asset-management.png
-coverAlt: Illustration of a small neighbourhood of houses, a road and a water main on a map grid, with one house flagged and linked to a live dashboard.
+coverAlt: Illustration of a monitor showing an asset management dashboard, with a map of houses, roads and a water main, one house flagged and linked to a highlighted work order.
 clearance: redacted
 ---
 
