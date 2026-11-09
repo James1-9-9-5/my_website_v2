@@ -1,25 +1,85 @@
 ---
+// Project card: high-level only (cover, title, one-line outcome).
+// Clicking opens a pop-up with the summary, tools and role, and a link to the
+// full case study. Without JavaScript the card simply links to the case study.
 import { Image } from 'astro:assets';
-import type { CollectionEntry } from 'astro:content';
+import { getEntry, type CollectionEntry } from 'astro:content';
 import Icon from './Icon.astro';
-import { url } from '../lib/site';
+import { getSkillNames } from '../lib/content';
+import { slugify, url } from '../lib/site';
 
 interface Props {
   project: CollectionEntry<'projects'>;
   headingLevel?: 'h2' | 'h3';
 }
 const { project, headingLevel = 'h3' } = Astro.props;
-const { title, subtitle, summary, cover, coverAlt } = project.data;
+const { title, subtitle, summary, cover, coverAlt, tools } = project.data;
 const Heading = headingLevel;
+const href = url(`projects/${project.id}/`);
+const dialogId = `project-${project.id}`;
+const role = await getEntry(project.data.role);
+const skillNames = await getSkillNames();
 ---
 <article class="card">
   <div class="card-thumb">
     <Image src={cover} alt={coverAlt} width={Math.min(486, cover.width)} widths={[486, 972].filter((w) => w <= cover.width)} sizes="(max-width: 860px) 100vw, 330px" loading="lazy" decoding="async" />
   </div>
   <div class="card-body">
-    <Heading><a href={url(`projects/${project.id}/`)}>{title}</a></Heading>
+    <Heading><a href={href} data-project-dialog={dialogId}>{title}</a></Heading>
     <p class="subtitle">{subtitle}</p>
-    <p class="summary">{summary}</p>
-    <span class="more" aria-hidden="true">Read case study <Icon name="arrow" size={16} /></span>
+    <span class="more" aria-hidden="true">View project <Icon name="arrow" size={16} /></span>
   </div>
 </article>
+
+<dialog class="project-dialog" id={dialogId} aria-labelledby={`${dialogId}-title`}>
+  <form method="dialog"><button class="dialog-close" aria-label="Close">&times;</button></form>
+  <div class="project-dialog-cover">
+    <Image src={cover} alt={coverAlt} width={Math.min(800, cover.width)} loading="lazy" decoding="async" />
+  </div>
+  <div class="project-dialog-body">
+    <h2 id={`${dialogId}-title`}>{title}</h2>
+    <p class="subtitle">{subtitle}</p>
+    <p>{summary}</p>
+    {tools.length > 0 && (
+      <>
+        <h3>Tools</h3>
+        <ul class="chips">
+          {tools.map((tool) => (
+            <li>
+              {skillNames.has(tool)
+                ? <a class="chip" href={url(`skills-education/#${slugify(tool)}`)}>{tool}</a>
+                : <span class="chip">{tool}</span>}
+            </li>
+          ))}
+        </ul>
+      </>
+    )}
+    {role && (
+      <p class="project-dialog-role">
+        <strong>Role:</strong> <a href={url(`experience/#${role.id}`)}>{role.data.role}{role.data.organization && `, ${role.data.organization}`}</a>
+      </p>
+    )}
+    <a class="btn" href={href}>Read the full case study <Icon name="arrow" size={16} /></a>
+  </div>
+</dialog>
+
+<script>
+  // Open the matching pop-up instead of following the link (once per page).
+  if (!(window as any).__projectDialogs) {
+    (window as any).__projectDialogs = true;
+    document.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement;
+      const link = target.closest<HTMLAnchorElement>('[data-project-dialog]');
+      if (link) {
+        const dialog = document.getElementById(link.dataset.projectDialog!) as HTMLDialogElement | null;
+        if (dialog && typeof dialog.showModal === 'function') {
+          e.preventDefault();
+          dialog.showModal();
+        }
+        return;
+      }
+      // Click on the dark backdrop closes the pop-up
+      if (target instanceof HTMLDialogElement && target.classList.contains('project-dialog')) target.close();
+    });
+  }
+</script>

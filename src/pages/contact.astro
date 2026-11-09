@@ -18,7 +18,7 @@ const { Content } = await render(page);
         <Content />
         <div class="actions" style="margin-top: 28px">
           {email && <a class="btn" href={`mailto:${email}`}><Icon name="mail" /> Get in touch</a>}
-          {resumePdf && <a class="btn btn--outline" href={url(resumePdf)} download><Icon name="download" /> Download CV</a>}
+          {resumePdf && <a class="btn btn--outline" href={url(resumePdf)} download><Icon name="download" /> Download resume</a>}
         </div>
       </div>
       <aside class="contact-card" aria-label="Contact details">
@@ -27,7 +27,7 @@ const { Content } = await render(page);
           {linkedin && (<div><dt><Icon name="linkedin" /> LinkedIn</dt><dd><a href={linkedin} rel="noopener">james-spooner1995</a></dd></div>)}
           {github && (<div><dt><Icon name="github" /> GitHub</dt><dd><a href={github} rel="noopener">James1-9-9-5</a></dd></div>)}
           {location && (<div><dt><Icon name="pin" /> Location</dt><dd>{location}</dd></div>)}
-          {resumePdf && (<div><dt><Icon name="download" /> CV</dt><dd><a href={url(resumePdf)} download>Download (PDF)</a></dd></div>)}
+          {resumePdf && (<div><dt><Icon name="download" /> Resume</dt><dd><a href={url(resumePdf)} download>Download (PDF)</a></dd></div>)}
         </dl>
       </aside>
     </div>

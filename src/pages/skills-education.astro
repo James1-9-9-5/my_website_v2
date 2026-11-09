@@ -3,12 +3,13 @@ import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import PageHeader from '../components/PageHeader.astro';
 import Icon from '../components/Icon.astro';
-import { getPage } from '../lib/content';
+import { getPage, getSkills } from '../lib/content';
 import { slugify, url } from '../lib/site';
 
 const page = await getPage('skills-education');
 const contact = await getPage('contact');
-const skills = await getCollection('skills');
+const skills = await getSkills();
+const steps = (await getCollection('process')).sort((a, b) => a.data.order - b.data.order);
 const education = (await getCollection('education')).sort((a, b) => b.data.endYear - a.data.endYear);
 ---
 <Base title={page.data.title} description={page.data.summary}>
@@ -37,9 +38,26 @@ const education = (await getCollection('education')).sort((a, b) => b.data.endYe
           ))}
         </ul>
         {contact.data.resumePdf && (
-          <a class="btn" href={url(contact.data.resumePdf)} download><Icon name="download" /> Download my CV (PDF)</a>
+          <a class="btn" href={url(contact.data.resumePdf)} download><Icon name="download" /> Download my resume</a>
         )}
       </div>
     </div>
   </section>
+  {steps.length > 0 && (
+    <section class="section section--alt" aria-labelledby="how-title">
+      <div class="wrap">
+        <h2 class="section-title" id="how-title">How I work</h2>
+        <p class="section-lede">Every project with a community follows the same four steps, so the work fits their priorities and stays in their hands.</p>
+        <ol class="steps">
+          {steps.map((step, i) => (
+            <li class="step">
+              <span class="step-num" aria-hidden="true">{i + 1}</span>
+              <h3>{step.data.title}</h3>
+              <p>{step.data.text}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+  )}
 </Base>

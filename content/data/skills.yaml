@@ -1,10 +1,18 @@
-# Each group needs a unique id. Project `tools` must match an item here.
+# Each group needs a unique id; order sets the display order.
+# Project `tools` must match an item here.
 - id: gis-software
+  order: 1
   group: GIS software
   items: [ArcGIS Pro, ArcGIS Online, Field Maps, Survey123, QuickCapture, Dashboards, QGIS]
 - id: data-programming
+  order: 2
   group: Data & programming
-  items: [PostgreSQL / PostGIS, SQL (MySQL), Python / ArcPy, ArcGIS API for Python, ModelBuilder, Power Automate, Microsoft Office]
+  items: [PostgreSQL / PostGIS, SQL (MySQL), Python / ArcPy, ArcGIS API for Python, ModelBuilder, Power Automate]
 - id: field-remote-sensing
+  order: 3
   group: Field & remote sensing
   items: [LiDAR processing, DTM / DSM / CHM, Tree detection, Volumetric modelling, Spatial analysis, Data analysis]
+- id: ways-of-working
+  order: 4
+  group: Ways of working
+  items: [Community engagement, Co-design, Training & documentation, Data governance (OCAP)]

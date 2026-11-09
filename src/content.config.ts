@@ -19,6 +19,7 @@ const experience = defineCollection({
     endDate: yearMonth.optional(), // empty means "Present"
     kind: z.enum(['role', 'summary']).default('role'),
     dateLabel: z.string().optional(), // for summary entries, e.g. "2018 – 2021"
+    summary: z.string().optional(), // one line shown under the title when the role is collapsed
     open: z.boolean().default(false),
     draft: z.boolean().default(false),
   }),
@@ -83,7 +84,8 @@ const pages = defineCollection({
               paragraphs: z.array(z.string()).min(1),
               image: image(),
               alt: z.string().min(1, 'every photo needs alt text'),
-              caption: z.string().optional(),
+              place: z.string().optional(), // short caption under the photo, e.g. "London, 2024"
+              caption: z.string().optional(), // longer caption shown when the photo is opened
               side: z.enum(['left', 'right']).default('right'),
             }),
           )
@@ -97,7 +99,7 @@ const pages = defineCollection({
 
 const skills = defineCollection({
   loader: file('content/data/skills.yaml'),
-  schema: z.object({ group: z.string(), items: z.array(z.string()).min(1) }),
+  schema: z.object({ group: z.string(), order: z.number().default(99), items: z.array(z.string()).min(1) }),
 });
 
 const education = defineCollection({
@@ -110,4 +112,9 @@ const education = defineCollection({
   }),
 });
 
-export const collections = { experience, projects, pages, skills, education };
+const process = defineCollection({
+  loader: file('content/data/process.yaml'),
+  schema: z.object({ order: z.number(), title: z.string(), text: z.string() }),
+});
+
+export const collections = { experience, projects, pages, skills, education, process };

@@ -20,6 +20,10 @@ export async function getPage(id: string) {
 }
 
 /** All skill names, for checking project tools against skills.yaml. */
+export async function getSkills() {
+  return (await getCollection('skills')).sort((a, b) => a.data.order - b.data.order);
+}
+
 export async function getSkillNames() {
   const groups = await getCollection('skills');
   return new Set(groups.flatMap((g) => g.data.items));

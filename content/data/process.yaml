@@ -1,0 +1,17 @@
+# "How I work" steps on the Skills & Education page, in order.
+- id: listen
+  order: 1
+  title: Listen and scope
+  text: I start by learning the community's priorities, existing systems and capacity, and we agree together on the goals and who leads.
+- id: plan
+  order: 2
+  title: Plan together
+  text: I co-design the approach with the team, including how information will be gathered, held and shared.
+- id: build
+  order: 3
+  title: Build and deliver
+  text: I build the maps, databases and tools, with regular check-ins along the way so there are no surprises.
+- id: handover
+  order: 4
+  title: Hand over and support
+  text: I document what I build and train staff, so the community can carry the work forward on its own.

@@ -23,7 +23,7 @@ const items = await Promise.all(
   <PageHeader title={page.data.title} lede={page.data.summary}>
     {contact.data.resumePdf && (
       <div class="actions" style="margin-top: 24px">
-        <a class="btn btn--light" href={url(contact.data.resumePdf)} download><Icon name="download" /> Download my CV (PDF)</a>
+        <a class="btn btn--light" href={url(contact.data.resumePdf)} download><Icon name="download" /> Download my resume</a>
       </div>
     )}
   </PageHeader>
@@ -53,6 +53,7 @@ const items = await Promise.all(
                 <summary>
                   <h2>{d.role}</h2>
                   {d.organization && <p class="role-company">{d.organization}</p>}
+                  {d.summary && <p class="role-summary">{d.summary}</p>}
                 </summary>
                 <Content />
                 {related.length > 0 && (

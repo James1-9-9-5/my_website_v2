@@ -23,18 +23,18 @@ const rows = await Promise.all(
             {row.paragraphs.map((p) => <p>{p}</p>)}
           </div>
           <figure>
-            <a class="photo-link" href={row.large} data-lightbox data-caption={row.caption ?? ''} aria-label={`Enlarge photo: ${row.alt}`}>
+            <a class:list={['photo-link', row.image.height > row.image.width ? 'photo-link--tall' : 'photo-link--wide']} href={row.large} data-lightbox data-caption={row.caption ?? ''} aria-label={`Enlarge photo: ${row.alt}`}>
               <Image
                 src={row.image}
                 alt={row.alt}
-                width={Math.min(600, row.image.width)}
-                widths={[300, 600, 900].filter((w) => w <= row.image.width)}
-                sizes="(max-width: 860px) 420px, 300px"
+                width={Math.min(520, row.image.width)}
+                widths={[260, 520, 780].filter((w) => w <= row.image.width)}
+                sizes="(max-width: 860px) 360px, 260px"
                 loading={i === 0 ? 'eager' : 'lazy'}
                 decoding="async"
               />
             </a>
-            {row.caption && <figcaption>{row.caption}</figcaption>}
+            {row.place && <figcaption>{row.place}</figcaption>}
           </figure>
         </div>
       ))}

@@ -4,8 +4,9 @@ organization: Tapestry Research Group
 location: Vancouver, Canada
 startDate: 2025-01
 open: true
+summary: Designing asset management and field data systems with First Nations communities, and training staff to run them.
 ---
-- Lead the design and deployment of GIS & Asset Management Systems using PostgreSQL/PostGIS, ArcGIS Pro and ArcGIS Online, supporting infrastructure and housing assessments in remote First Nations communities.
+- Lead the design and deployment of GIS and asset management systems using PostgreSQL/PostGIS, ArcGIS Pro and ArcGIS Online, supporting infrastructure and housing assessments in remote First Nations communities.
 - Build relational asset databases and field-to-dashboard workflows (Survey123, Field Maps) for real-time deficiency reporting and maintenance tracking across remote sites.
 - Automate spatial data updates with Python, ArcPy and the ArcGIS API for Python, keeping data in sync across disconnected environments.
 - Perform advanced LiDAR and terrain analysis, including DTM/DSM generation and volumetric modelling.

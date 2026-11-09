@@ -1,4 +1,4 @@
 ---
 title: Experience
-summary: My GIS journey, from intern to specialist.
+summary: From mapping wildlife in South Africa to building asset systems with First Nations communities in BC.
 ---

@@ -4,6 +4,7 @@ organization: Wildlife & Ecological Investments
 location: Herbertsdale, South Africa
 startDate: 2021-07
 endDate: 2021-10
+summary: Vegetation mapping and hot spot analysis for a game reserve's anti-poaching unit.
 ---
 - Generated high-resolution vegetation classification maps of Gondwana Game Reserve using Sentinel-2 imagery to analyze regional distribution patterns.
 - Modelled endangered species population data within Gondwana Game Reserve against topographic gradients to evaluate altitudinal variations.

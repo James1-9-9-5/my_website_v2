@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets';
+import { Image, getImage } from 'astro:assets';
 import { getEntry, render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import PageHeader from '../../components/PageHeader.astro';
@@ -26,26 +26,30 @@ for (const tool of d.tools) {
 }
 
 const { Content } = await render(project);
+
+// Share preview: this project's cover, cropped to 1200 x 630
+const share = await getImage({ src: d.cover, width: 1200, height: 630, fit: 'cover', format: 'jpg' });
 ---
-<Base title={d.title} description={d.summary}>
+<Base title={d.title} description={d.summary} image={share.src} imageAlt={d.coverAlt}>
   <PageHeader title={d.title} lede={d.subtitle}>
     <p class="eyebrow" slot="eyebrow"><a href={url('projects/')}>Projects</a></p>
   </PageHeader>
 
   <section class="section">
     <div class="wrap case-layout">
+      <div class="case-cover">
+        <Image src={d.cover} alt={d.coverAlt} width={Math.min(600, d.cover.width)} loading="eager" />
+      </div>
+
       <div class="case-body prose">
         <Content />
         {d.clearance === 'redacted' && (
-          <p class="note">Client and community details are generalised or removed from this case study. More detail is available on request.</p>
+          <p class="note">Client and community details have been left out or generalized.</p>
         )}
         <p style="margin-top: 32px"><a class="back-link" href={url('projects/')}><Icon name="back" size={16} /> All projects</a></p>
       </div>
 
       <aside class="case-aside" aria-label="Project details">
-        <div class="case-cover">
-          <Image src={d.cover} alt={d.coverAlt} width={Math.min(600, d.cover.width)} loading="eager" />
-        </div>
         <div>
           <h2>Tools</h2>
           <ul class="chips">

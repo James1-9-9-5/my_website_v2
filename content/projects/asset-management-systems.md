@@ -22,4 +22,4 @@ I designed a relational PostgreSQL/PostGIS asset database with custom schemas, a
 The systems support infrastructure and housing assessments in remote First Nations communities, and community staff are trained to configure and maintain them themselves.
 
 ## Outcome
-Real-time deficiency reporting, maintenance tracking and work-order management now run in one workflow, from field inspection to dashboard.
+Real-time deficiency reporting, maintenance tracking and work order management now run in one workflow, from field inspection to dashboard.
