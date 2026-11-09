@@ -4,7 +4,7 @@ summary: GIS Specialist building asset management, field data and maintenance sc
 headline: I build asset management and maintenance systems with First Nations communities, and train local teams to run them.
 tagline: GIS Specialist. Professional map nerd. Usually outdoors.
 # intro (optional): a second line under the headline. Left out to keep the hero short.
-heroImage: ../../media-source/home/profile.jpeg
+heroImage: ../../media-source/home/profile-square.jpg
 heroAlt: Portrait of James Spooner
 featuredCount: 3
 # "At a glance" strip. {years} is worked out at build time from gisSince.
