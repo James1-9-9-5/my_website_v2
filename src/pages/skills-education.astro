@@ -9,7 +9,6 @@ import { slugify, url } from '../lib/site';
 const page = await getPage('skills-education');
 const contact = await getPage('contact');
 const skills = await getSkills();
-const steps = (await getCollection('process')).sort((a, b) => a.data.order - b.data.order);
 const education = (await getCollection('education')).sort((a, b) => b.data.endYear - a.data.endYear);
 ---
 <Base title={page.data.title} description={page.data.summary}>
@@ -43,21 +42,4 @@ const education = (await getCollection('education')).sort((a, b) => b.data.endYe
       </div>
     </div>
   </section>
-  {steps.length > 0 && (
-    <section class="section section--alt" aria-labelledby="how-title">
-      <div class="wrap">
-        <h2 class="section-title" id="how-title">How I work</h2>
-        <p class="section-lede">The community leads, and the system has to work without me. Every project follows the same route.</p>
-        <ol class="route">
-          {steps.map((step, i) => (
-            <li class="route-step">
-              <span class="route-marker" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
-              <h3>{step.data.title}</h3>
-              <p>{step.data.text}</p>
-            </li>
-          ))}
-        </ol>
-      </div>
-    </section>
-  )}
 </Base>

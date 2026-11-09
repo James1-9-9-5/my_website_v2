@@ -30,7 +30,7 @@ rows:
   - side: left
     image: ../../media-source/beyond-the-map/photo1.jpg
     alt: Family and friends on a sunny marina boardwalk, all wearing red flotation suits before a boat trip.
-    place: Vancouver, Canada, 2025
+    place: Nanaimo, Canada, 2025
     caption: Family time.
     paragraphs:
       - "None of it would mean as much without my family and friends keeping me grounded. Moving between countries has made me value time with them even more. The best days are simple: good food, good company and fresh air."

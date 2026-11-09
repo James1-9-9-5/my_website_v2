@@ -108,7 +108,7 @@ Not in v1 (decision D3: later). The header and footer are already dark, so a dar
 | Confidentiality note | Muted text with a 4 px `--sage-dark` left border, under the project grid |
 | Buttons | Pill, `--sage-dark` fill, white bold text, hover `--sage-darker`. Icon buttons: 38 px white circles (raise to 44 px for touch) |
 | Contact page | Short intro (body of `contact.md`) with Get in touch and Download CV, beside a details card: email, LinkedIn, GitHub, location, CV |
-| How I work | Skills & Education: four steps from `content/data/process.yaml`, drawn as a route with numbered waypoints joined by a dashed line (horizontal on desktop, vertical on phones); the last waypoint is filled sage to mark the handover |
+| How I approach a project | Projects page, below the cards: four steps from `content/data/process.yaml`, drawn as a route with numbered waypoints joined by a dashed line (horizontal on desktop, vertical on phones); the last waypoint is filled sage to mark the handover |
 | Footer | Charcoal, email, LinkedIn, GitHub, Resume, then copyright, location and "Last updated" (build month) |
 | Favicon | Charcoal rounded square with two uneven sage contour lines and a summit dot (a small hill on a topo map). `public/favicon.svg` plus PNG/ICO sizes; the iPhone icon is a full square because iOS rounds the corners. Bump `ICON_VERSION` in `Base.astro` whenever the icons change |
 | Link preview image | `public/og-image.jpg`, 1200×630: photo, name, title, one-line summary on charcoal with contour rings |

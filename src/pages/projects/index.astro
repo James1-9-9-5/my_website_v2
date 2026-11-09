@@ -2,10 +2,12 @@
 import Base from '../../layouts/Base.astro';
 import PageHeader from '../../components/PageHeader.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
+import { getCollection } from 'astro:content';
 import { getPage, getProjects } from '../../lib/content';
 
 const page = await getPage('projects');
 const projects = await getProjects();
+const steps = (await getCollection('process')).sort((a, b) => a.data.order - b.data.order);
 ---
 <Base title={page.data.title} description={page.data.summary}>
   <PageHeader title={page.data.title} lede={page.data.summary} />
@@ -20,4 +22,21 @@ const projects = await getProjects();
       </p>
     </div>
   </section>
+  {steps.length > 0 && (
+    <section class="section section--alt" aria-labelledby="how-title">
+      <div class="wrap">
+        <h2 class="section-title" id="how-title">How I approach a project</h2>
+        <p class="section-lede">When I build systems with a community, the community leads and the system has to work without me. Those projects follow the same four steps.</p>
+        <ol class="route">
+          {steps.map((step, i) => (
+            <li class="route-step">
+              <span class="route-marker" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+              <h3>{step.data.title}</h3>
+              <p>{step.data.text}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+  )}
 </Base>
