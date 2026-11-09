@@ -17,27 +17,29 @@ const rows = await Promise.all(
   <PageHeader title={page.data.title} lede={page.data.summary} />
   <section class="section">
     <div class="wrap">
-      {rows.map((row, i) => (
-        <div class:list={['story-row', row.side === 'left' && 'story-row--left']}>
-          <div class="prose">
-            {row.paragraphs.map((p) => <p>{p}</p>)}
-          </div>
-          <figure>
-            <a class:list={['photo-link', row.image.height > row.image.width ? 'photo-link--tall' : 'photo-link--wide']} href={row.large} data-lightbox data-caption={row.caption ?? ''} aria-label={`Enlarge photo: ${row.alt}`}>
-              <Image
-                src={row.image}
-                alt={row.alt}
-                width={Math.min(520, row.image.width)}
-                widths={[260, 520, 780].filter((w) => w <= row.image.width)}
-                sizes="(max-width: 860px) 360px, 260px"
-                loading={i === 0 ? 'eager' : 'lazy'}
-                decoding="async"
-              />
-            </a>
-            {row.place && <figcaption>{row.place}</figcaption>}
-          </figure>
-        </div>
-      ))}
+      <article class="story">
+        {rows.map((row, i) => (
+          <section class:list={['story-row', row.side === 'left' && 'story-row--left']}>
+            <div class="story-text">
+              {row.paragraphs.map((p) => <p>{p}</p>)}
+            </div>
+            <figure class:list={['story-photo', row.image.height > row.image.width ? 'story-photo--tall' : 'story-photo--wide']}>
+              <a class="photo-link" href={row.large} data-lightbox data-caption={row.caption ?? ''} aria-label={`Enlarge photo: ${row.alt}`}>
+                <Image
+                  src={row.image}
+                  alt={row.alt}
+                  width={Math.min(560, row.image.width)}
+                  widths={[280, 560, 840].filter((w) => w <= row.image.width)}
+                  sizes="(max-width: 640px) 100vw, 260px"
+                  loading={i === 0 ? 'eager' : 'lazy'}
+                  decoding="async"
+                />
+              </a>
+              {row.place && <figcaption>{row.place}</figcaption>}
+            </figure>
+          </section>
+        ))}
+      </article>
     </div>
   </section>
 

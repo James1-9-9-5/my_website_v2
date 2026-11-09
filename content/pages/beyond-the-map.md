@@ -22,7 +22,7 @@ rows:
   - side: right
     image: ../../media-source/beyond-the-map/photo3.jpg
     alt: Bouldering up a large moss-topped boulder in a forest, with a friend watching from the crash pad below.
-    place: ""
+    place: Squamish, Canada, 2026
     caption: Reaching new heights.
     paragraphs:
       - "Outside work, you'll usually find me outdoors: hiking, bouldering, or at the gym making up for the hours behind a screen. Bouldering is my favourite because it's all problem-solving. You work a route one move at a time, fall off a few times, and then it finally clicks. I bring the same approach to tricky GIS problems."
@@ -30,14 +30,14 @@ rows:
   - side: left
     image: ../../media-source/beyond-the-map/photo1.jpg
     alt: Family and friends on a sunny marina boardwalk, all wearing red flotation suits before a boat trip.
-    place: ""
+    place: Vancouver, Canada, 2025
     caption: Family time.
     paragraphs:
       - "None of it would mean as much without my family and friends keeping me grounded. Moving between countries has made me value time with them even more. The best days are simple: good food, good company and fresh air."
   - side: right
     image: ../../media-source/beyond-the-map/photo5.jpeg
     alt: Former colleagues laughing together by the river in London at sunset, holding one friend up sideways.
-    place: London, 2024
+    place: London, England, 2024
     caption: Making friends along the way.
     paragraphs:
       - "In the end, it's people that connect everything I do. Rangers in South Africa, conservation teams in Bolivia, my old colleagues in London (pictured on my last day): the people you work with matter as much as the systems you build, and that's what I bring to every team and community I work with."

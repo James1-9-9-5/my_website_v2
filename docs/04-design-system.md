@@ -103,7 +103,7 @@ Not in v1 (decision D3: later). The header and footer are already dark, so a dar
 | Experience role | Two columns (meta 270 px, details), collapsing to one under 860 px. Collapsible `<details>`/`<summary>`; the newest role is open by default. Meta shows dates, duration in yrs/mos (counted inclusively, like LinkedIn, calculated at build time), and location with a pin icon |
 | Chips | Pill tags on white with a `--line` border; used for skills and case-study tools |
 | Skills strip | Grouped chips. Stays on a single line at desktop widths; wraps on narrow screens |
-| Story rows | Beyond the Map: alternating text-and-photo rows (photo right, then left), photo column 220-300 px, stacking to one column under 860 px. Replaces the four-photo row in the earlier plan to match the current site |
+| Story rows | Beyond the Map: text and photo rows alternating sides, in an 880 px column. Photos are 230 px wide (portrait photos cropped square, landscape 4:3) with a place-and-year caption; the longer caption shows when a photo is opened. Text is centred against the photo, and rows stack on phones |
 | Image lightbox | Beyond the Map photos open larger in a native `<dialog>`. Without JavaScript the link opens the large image directly |
 | Confidentiality note | Muted text with a 4 px `--sage-dark` left border, under the project grid |
 | Buttons | Pill, `--sage-dark` fill, white bold text, hover `--sage-darker`. Icon buttons: 38 px white circles (raise to 44 px for touch) |

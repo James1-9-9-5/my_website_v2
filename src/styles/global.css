@@ -353,22 +353,24 @@ a.chip:hover { border-color: var(--sage-dark); color: var(--sage-darker); }
 .edu-list p { margin: 2px 0 0; color: var(--text-muted); }
 @media (max-width: 860px) { .cols { grid-template-columns: 1fr; gap: 24px; } }
 
-/* ---------- Beyond the Map story rows ---------- */
-.story-row { display: grid; grid-template-columns: 1fr 260px; gap: 48px; align-items: center; margin-top: 56px; }
-.story-row:first-child { margin-top: 0; }
-.story-row--left { grid-template-columns: 260px 1fr; }
-.photo-link--tall img { aspect-ratio: 4 / 5; object-fit: cover; }
-.photo-link--wide img { aspect-ratio: 4 / 3; object-fit: cover; }
-.story-row--left figure { order: -1; }
-.story-row figure { margin: 0; }
-.story-row figure img { width: 100%; border-radius: var(--radius); }
-.story-row figcaption { margin-top: 8px; font-size: var(--step--1); color: var(--text-muted); display: flex; align-items: center; gap: 6px; }
-.story-row figcaption::before { content: ""; width: 14px; height: 2px; background: var(--sage-dark); flex: none; }
-.story-row .prose p:last-child { margin-bottom: 0; }
-@media (max-width: 860px) {
-  .story-row, .story-row--left { grid-template-columns: 1fr; gap: 16px; }
-  .story-row--left figure { order: 0; }
-  .story-row figure { max-width: 360px; }
+/* ---------- Beyond the Map: text and photo rows, sized so neither leaves big gaps ---------- */
+.story { max-width: 880px; margin: 0 auto; font-size: 1.05rem; }
+.story-row { display: grid; grid-template-columns: minmax(0, 1fr) 230px; gap: 40px; align-items: center; }
+.story-row + .story-row { margin-top: 36px; }
+.story-row--left { grid-template-columns: 230px minmax(0, 1fr); }
+.story-row--left .story-photo { order: -1; }
+.story-text p { margin: 0 0 1em; }
+.story-text p:last-child { margin-bottom: 0; }
+.story-photo { margin: 0; }
+.story-photo img { width: 100%; border-radius: var(--radius); }
+.story-photo--tall img { aspect-ratio: 1 / 1; object-fit: cover; object-position: 50% 30%; }
+.story-photo--wide img { aspect-ratio: 4 / 3; object-fit: cover; }
+.story-photo figcaption { margin-top: 8px; font-size: var(--step--1); color: var(--text-muted); display: flex; align-items: center; gap: 6px; }
+.story-photo figcaption::before { content: ""; width: 14px; height: 2px; background: var(--sage-dark); flex: none; }
+@media (max-width: 700px) {
+  .story-row, .story-row--left { grid-template-columns: 1fr; gap: 18px; }
+  .story-row--left .story-photo { order: 0; }
+  .story-photo { max-width: 360px; }
 }
 
 /* ---------- Contact ---------- */
