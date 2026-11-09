@@ -310,6 +310,14 @@ a.chip:hover { border-color: var(--sage-dark); color: var(--sage-darker); }
 .case-banner { margin-top: 32px; }
 .case-banner img { width: 100%; aspect-ratio: 2 / 1; object-fit: cover; object-position: 50% 30%; border-radius: var(--radius); }
 .section--case { padding-top: 48px; }
+.related { margin-top: 40px; }
+.case-body .related h2 { font-size: var(--step--1); text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); font-family: var(--font-body); margin: 0 0 12px; }
+.related-list { display: grid; gap: 10px; list-style: none; margin: 0; padding: 0; }
+.related-list a { display: flex; flex-direction: column; gap: 2px; padding: 14px 16px; border: 1px solid var(--line); border-radius: var(--radius); text-decoration: none; color: var(--text); transition: border-color 0.15s ease; }
+.related-list a:hover { border-color: var(--sage-dark); }
+.related-list strong { color: var(--sage-darker); font-family: var(--font-heading); }
+.related-list span { color: var(--text-muted); font-size: 0.95rem; }
+.related-list .related-kind { font-size: var(--step--1); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--sage-dark); }
 .case-nav { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; margin-top: 36px; padding-top: 24px; border-top: 1px solid var(--line); }
 .next-link { display: flex; flex-direction: column; align-items: flex-end; text-decoration: none; text-align: right; }
 .next-link span { font-size: var(--step--1); color: var(--text-muted); }

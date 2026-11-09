@@ -11,11 +11,11 @@ export async function getStaticPaths() {
   const projects = await getProjects();
   return projects.map((project, i) => ({
     params: { slug: project.id },
-    props: { project, next: projects[(i + 1) % projects.length] },
+    props: { project, next: projects[(i + 1) % projects.length], related: projects.filter((p) => p.id !== project.id) },
   }));
 }
 
-const { project, next } = Astro.props;
+const { project, next, related } = Astro.props;
 const d = project.data;
 
 // Rule (docs/02): role must match an Experience file. Fail the build if not.
@@ -49,6 +49,29 @@ const share = await getImage({ src: d.cover, width: 1200, height: 630, fit: 'cov
         <Content />
         {d.clearance === 'redacted' && (
           <p class="note">Client and community details have been left out or generalized.</p>
+        )}
+        {related.length > 0 && (
+          <section class="related" aria-labelledby="related-title">
+            <h2 id="related-title">Related</h2>
+            <ul class="related-list">
+              {related.map((r) => (
+                <li>
+                  <a href={url(`projects/${r.id}/`)}>
+                    <span class="related-kind">Project</span>
+                    <strong>{r.data.title}</strong>
+                    <span>{r.data.subtitle}</span>
+                  </a>
+                </li>
+              ))}
+              <li>
+                <a href={url('projects/#how-title')}>
+                  <span class="related-kind">Approach</span>
+                  <strong>How I approach a project</strong>
+                  <span>The four steps I follow when building systems with a community</span>
+                </a>
+              </li>
+            </ul>
+          </section>
         )}
         <nav class="case-nav" aria-label="More projects">
           <a class="back-link" href={url('projects/')}><Icon name="back" size={16} /> All projects</a>

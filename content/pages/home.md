@@ -12,18 +12,12 @@ gisSince: 2021-07
 glance:
   - value: "{years}+ years"
     label: in GIS, from intern to specialist
+  - value: 7 systems
+    label: Field-to-dashboard systems, each built to spec
+  - value: 2 atlases
+    label: Bioregional atlases produced
   - value: 3 countries
     label: Worked in Canada, the UK, and South Africa
-  - value: First Nations
-    label: Asset systems built and handed over
-  - value: Tapestry
-    label: GIS Specialist since January 2025
-# Hero background: 1-6 photos that fade between each other behind the text,
-# in this order (the first one shows on its own if a visitor has motion turned off).
-# Wide landscape photos work best. focus (optional) = which part stays in
-# view when cropped, e.g. "50% 30%" (left-right, top-bottom).
-# flip: true mirrors a photo, to move its subject out from behind the text.
-# Stock photos from Unsplash/Pexels (free licence, no credit required).
 heroBackgrounds:
   - image: ../../media-source/home/stock-1.jpeg   # Lions Gate Bridge, Stanley Park
     focus: 70% 58%
