@@ -40,5 +40,5 @@ rows:
     place: London, England, 2024
     caption: Making friends along the way.
     paragraphs:
-      - "In the end, it's people that connect everything I do. Rangers in South Africa, conservation teams in Bolivia, my old colleagues in London (pictured on my last day): the people you work with matter as much as the systems you build, and that's what I bring to every team and community I work with."
+      - "The common thread through all of it is people: rangers in South Africa, conservation teams in Bolivia, my old colleagues in London (pictured on my last day). Good working relationships make for better projects, and I put the same care into every team and community I join."
 ---

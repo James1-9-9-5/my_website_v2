@@ -6,4 +6,8 @@ endDate: 2021-06
 dateLabel: 2018 – 2021
 summary: Data-focused roles in admissions, community operations and market research.
 ---
-Data-focused roles in admissions at London South Bank University, community operations at IWG, and market research at MBI, where accuracy and organization came first.
+- Admissions, London South Bank University
+- Community operations, IWG
+- Market research, MBI
+
+Each was data-focused, and accuracy and organization came first.

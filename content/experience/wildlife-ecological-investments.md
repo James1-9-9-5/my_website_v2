@@ -6,6 +6,6 @@ startDate: 2021-07
 endDate: 2021-10
 summary: Vegetation mapping and hot spot analysis for a game reserve's anti-poaching unit.
 ---
-- Generated high-resolution vegetation classification maps of Gondwana Game Reserve using Sentinel-2 imagery to analyze regional distribution patterns.
-- Modelled endangered species population data within Gondwana Game Reserve against topographic gradients to evaluate altitudinal variations.
-- Carried out advanced spatial analysis, including Kernel Density, Density-based Clustering and Optimized Hot Spot Analysis, to deliver actionable intelligence for Gondwana Game Reserve's Anti-Poaching Unit.
+- Mapped vegetation across Gondwana Game Reserve from Sentinel-2 imagery to show how habitats were distributed.
+- Modelled endangered species populations against topography to understand how they varied with altitude.
+- Ran hot spot, kernel density and density-based clustering analysis to help the reserve's anti-poaching unit see where to focus its efforts.

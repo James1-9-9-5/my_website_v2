@@ -23,7 +23,15 @@ const { Content } = await render(page);
       </div>
       <aside class="contact-card" aria-label="Contact details">
         <dl>
-          {email && (<div><dt><Icon name="mail" /> Email</dt><dd><a href={`mailto:${email}`}>{email}</a></dd></div>)}
+          {email && (
+            <div>
+              <dt><Icon name="mail" /> Email</dt>
+              <dd class="email-row">
+                <a href={`mailto:${email}`}>{email}</a>
+                <button type="button" class="copy-btn" data-copy={email} hidden>Copy</button>
+              </dd>
+            </div>
+          )}
           {linkedin && (<div><dt><Icon name="linkedin" /> LinkedIn</dt><dd><a href={linkedin} rel="noopener">james-spooner1995</a></dd></div>)}
           {github && (<div><dt><Icon name="github" /> GitHub</dt><dd><a href={github} rel="noopener">James1-9-9-5</a></dd></div>)}
           {location && (<div><dt><Icon name="pin" /> Location</dt><dd>{location}</dd></div>)}
@@ -32,4 +40,19 @@ const { Content } = await render(page);
       </aside>
     </div>
   </section>
+  <script>
+    // "Copy" button for people without a mail app; hidden if the browser can't copy
+    document.querySelectorAll<HTMLButtonElement>('.copy-btn').forEach((btn) => {
+      if (!navigator.clipboard) return;
+      btn.hidden = false;
+      btn.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(btn.dataset.copy ?? '');
+          btn.textContent = 'Copied';
+          btn.classList.add('is-copied');
+          setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('is-copied'); }, 2000);
+        } catch { /* leave the button as it was */ }
+      });
+    });
+  </script>
 </Base>

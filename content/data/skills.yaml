@@ -7,11 +7,11 @@
 - id: data-programming
   order: 2
   group: Data & programming
-  items: [PostgreSQL / PostGIS, SQL (MySQL), Python / ArcPy, ArcGIS API for Python, ModelBuilder, Power Automate]
+  items: [PostgreSQL / PostGIS, SQL, Python / ArcPy, ArcGIS API for Python, ModelBuilder, Power Automate, Spatial analysis, Data analysis]
 - id: field-remote-sensing
   order: 3
   group: Field & remote sensing
-  items: [LiDAR processing, DTM / DSM / CHM, Tree detection, Volumetric modelling, Spatial analysis, Data analysis]
+  items: [LiDAR processing, DTM / DSM / CHM, Tree detection, Volumetric modelling]
 - id: ways-of-working
   order: 4
   group: Ways of working

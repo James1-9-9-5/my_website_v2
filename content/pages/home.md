@@ -13,7 +13,7 @@ glance:
   - value: "{years}+ years"
     label: in GIS, from intern to specialist
   - value: 3 countries
-    label: Canada, the UK and South Africa
+    label: Worked in Canada, the UK and South Africa
   - value: ArcGIS, PostGIS, Python
     label: Core tools, from field apps to automation
   - value: Tapestry Research Group

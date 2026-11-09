@@ -71,12 +71,15 @@ const links = NAV.map((item) => ({
     <a class="skip-link" href="#main">Skip to main content</a>
 
     <nav class="site-nav" aria-label="Main">
-      <!-- Desktop: centred tabs -->
+      <!-- Desktop: name on the left, centred tabs -->
+      <div class="nav-desktop">
+      <a class="nav-brand nav-brand--desktop" href={url('')}>James Spooner</a>
       <ul class="nav-links">
         {links.map((item) => (
           <li><a href={item.href} aria-current={item.current ? 'page' : undefined}>{item.label}</a></li>
         ))}
       </ul>
+      </div>
       <!-- Phones: name + Menu button (a <details>, so it works without JavaScript) -->
       <div class="nav-mobile">
         <a class="nav-brand" href={url('')}>James Spooner</a>

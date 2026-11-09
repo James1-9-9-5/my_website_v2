@@ -26,4 +26,4 @@
 | Projects | Cover: Spatial Data Automation (current thumbnail) | [x] |
 | Projects | 1-3 inline visuals per case study (optional at launch; current covers used, D14) | [ ] |
 | Beyond the Map | Five story-row photos (from current site) | [x] |
-| Contact / all | CV PDF, versioned filename (`james-spooner-cv-2026-11.pdf`) | [x] |
+| Contact / all | Resume PDF, versioned filename (`james-spooner-resume-2026-11.pdf`) | [x] |

@@ -14,9 +14,9 @@ const education = (await getCollection('education')).sort((a, b) => b.data.endYe
 <Base title={page.data.title} description={page.data.summary}>
   <PageHeader title={page.data.title} lede={page.data.summary} />
   <section class="section">
-    <div class="wrap cols">
-      <div>
-        <h2 id="skills">Skills</h2>
+    <div class="wrap">
+      <h2 id="skills" class="section-title">Skills</h2>
+      <div class="skills-grid">
         {skills.map((group) => (
           <div class="skill-group">
             <h3>{group.data.group}</h3>
@@ -26,8 +26,12 @@ const education = (await getCollection('education')).sort((a, b) => b.data.endYe
           </div>
         ))}
       </div>
+    </div>
+  </section>
+  <section class="section section--alt">
+    <div class="wrap edu-layout">
       <div>
-        <h2 id="education">Education</h2>
+        <h2 id="education" class="section-title">Education</h2>
         <ul class="edu-list">
           {education.map((e) => (
             <li>
@@ -36,10 +40,13 @@ const education = (await getCollection('education')).sort((a, b) => b.data.endYe
             </li>
           ))}
         </ul>
-        {contact.data.resumePdf && (
-          <a class="btn" href={url(contact.data.resumePdf)} download><Icon name="download" /> Download my resume</a>
-        )}
       </div>
+      {contact.data.resumePdf && (
+        <div class="edu-cta">
+          <p>Want everything in one place?</p>
+          <a class="btn" href={url(contact.data.resumePdf)} download><Icon name="download" /> Download my resume</a>
+        </div>
+      )}
     </div>
   </section>
 </Base>
