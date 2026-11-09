@@ -6,8 +6,10 @@ startDate: 2025-01
 open: true
 summary: Designing asset management and field data systems with First Nations communities, and training staff to run them.
 ---
-- Lead the design and deployment of GIS and asset management systems using PostgreSQL/PostGIS, ArcGIS Pro and ArcGIS Online, supporting infrastructure and housing assessments in remote First Nations communities.
-- Build relational asset databases and field-to-dashboard workflows (Survey123, Field Maps) for real-time deficiency reporting and maintenance tracking across remote sites.
-- Automate spatial data updates with Python, ArcPy and the ArcGIS API for Python, keeping data in sync across disconnected environments.
-- Carry out LiDAR and terrain analysis, including DTM/DSM generation and volumetric modelling.
-- Work directly with Chief and Council, Elders and community leadership to shape project requirements, and train First Nations staff to configure and maintain their own systems.
+- Lead the design and build of asset management and maintenance systems for remote First Nations communities.
+- Turn field inspections and resident reports into tracked work orders, so nothing falls through the cracks.
+- Give staff and leadership live dashboards showing the condition of their housing and infrastructure.
+- Automate routine data work so systems stay accurate without extra effort from staff.
+- Co-write asset management plans and the manuals staff rely on day to day.
+- Work alongside Chief and Council, Elders and staff, and train local teams to run their own systems.
+- Produce maps and atlases that help communities plan for and tell the story of their territory.
