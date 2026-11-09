@@ -47,11 +47,11 @@ const education = (await getCollection('education')).sort((a, b) => b.data.endYe
     <section class="section section--alt" aria-labelledby="how-title">
       <div class="wrap">
         <h2 class="section-title" id="how-title">How I work</h2>
-        <p class="section-lede">Every project with a community follows the same four steps, so the work fits their priorities and stays in their hands.</p>
-        <ol class="steps">
+        <p class="section-lede">The community leads, and the system has to work without me. Every project follows the same route.</p>
+        <ol class="route">
           {steps.map((step, i) => (
-            <li class="step">
-              <span class="step-num" aria-hidden="true">{i + 1}</span>
+            <li class="route-step">
+              <span class="route-marker" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
               <h3>{step.data.title}</h3>
               <p>{step.data.text}</p>
             </li>
